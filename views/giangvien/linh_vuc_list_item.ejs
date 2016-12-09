@@ -1,0 +1,14 @@
+<li class="tile ui-sortable-handle">
+    <div class="checkbox checkbox-styled tile-text">
+        <label>
+            <% if(checked){ %>
+            <input type="checkbox" checked="checked" name="linhvuc" value="<%= id %>">
+            <% }else{ %>
+            <input type="checkbox"name="linhvuc" value="<%= id %>">
+            <% } %>
+            <span>
+                <%= name %>
+            </span>
+        </label>
+    </div>
+</li>

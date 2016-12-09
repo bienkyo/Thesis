@@ -1,0 +1,10 @@
+.col-centered {
+    margin: 0 auto;
+}
+.profile-avatar{
+    width: 140px;
+    
+}
+#upload-input {
+	padding-left: 24px;
+}

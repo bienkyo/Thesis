@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Material Admin - Dynamic tables</title>
+
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your,keywords">
+    <meta name="description" content="Short explanation about this website">
+    <!-- END META -->
+
+    <!-- BEGIN STYLESHEETS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css'/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/bootstrap.css?1422792965" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/materialadmin.css?1425466319" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/font-awesome.min.css?1422529194" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/material-design-iconic-font.min.css?1421434286" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/libs/DataTables/jquery.dataTables.css?1423553989" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.colVis.css?1423553990" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.tableTools.css?1423553990" />
+    <link href="/stylesheets/upload.css" rel="stylesheet">
+    <!-- END STYLESHEETS -->
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/assets/js/libs/utils/html5shiv.js?1403934957"></script>
+    <script type="text/javascript" src="/assets/js/libs/utils/respond.min.js?1403934956"></script>
+    <![endif]-->
+</head>
+<body class="menubar-hoverable header-fixed ">
+<%- include('header') %>
+<!-- BEGIN BASE-->
+<div id="base">
+    <!-- BEGIN CONTENT-->
+    <div id="content">
+        <section>
+            <div class="section-body content-lg">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img class="img-circle border-white border-xl img-responsive profile-avatar col-centered"  alt=""
+                                     src="/images/UET.jpg">
+                                <h3>UET<br><small>Computer Sicence</small></h3>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-head">
+                                <ul class="nav nav-tabs" data-toggle="tabs">
+                                    <li class="active"><a href="#tab-about">UPLOAD FILE</a></li>
+                                    <li><a href="#tab-edit">Add Giang Vien</a></li>
+                                    <li><a href="#tab-edit1">Add Sinh Vien</a></li>
+                                    <li><a href="#tab-edit2">Add Dang Ky De Tai</a></li>
+                                </ul>
+                            </div>
+                            <div class="card-body tab-content">
+                                <div class="tab-pane" id="tab-about">
+                                    <div class="about-area">
+                                        <h4 class="text-default-light">Please choose file upload about Giang Vien</h4>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <span class="glyphicon glyphicon-cloud-upload"></span>
+                                                        <h2>File Uploader</h2>
+                                                        <h4>coligo.io</h4>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar"></div>
+                                                        </div>
+                                                        <button class="btn btn-lg upload-btn" type="button">Upload File</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input id="upload-input" type="file" name="uploads[]" multiple="multiple"></br>
+                                    </div><!--  end-aboutarea -->
+
+                                    <div class="about-area">
+                                        <h4 class="text-default-light">Please choose file upload about Sinh Vien</h4>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <span class="glyphicon glyphicon-cloud-upload"></span>
+                                                        <h2>File Uploader</h2>
+                                                        <h4>coligo.io</h4>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar"></div>
+                                                        </div>
+                                                        <button class="btn btn-lg upload-btn1" type="button">Upload File</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input id="upload-input1" type="file" name="uploads[]" multiple="multiple"></br>
+                                    </div><!--  end-aboutarea -->
+
+                                    <!--Upload danh sach sinh vien co du dieu kien dang ky de tai-->
+                                    <div class="about-area">
+                                        <h4 class="text-default-light">Please choose file upload Danh sach sinh vien co du dieu kien dang ki de tai</h4>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <span class="glyphicon glyphicon-cloud-upload"></span>
+                                                        <h2>File Uploader</h2>
+                                                        <h4>coligo.io</h4>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar"></div>
+                                                        </div>
+                                                        <button class="btn btn-lg upload-btn2" type="button">Upload File</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input id="upload-input2" type="file" name="uploads[]" multiple="multiple"></br>
+                                    </div><!--  end-aboutarea -->
+
+
+                                    <!--mo dang ky de tai-->
+
+                                    <div class="about-area">
+                                        <h4 class="text-default-light">Mo dang ki de tai</h4>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-success">Mo dang ky</button>
+                                            </div>
+                                        </div>
+                                    </div><!--  end-aboutarea -->
+
+                                </div><!--  tab-about -->
+
+
+                                <div class="tab-pane active" id="tab-edit1">
+                                    <form class="form-horizontal" action="/users/add_one_sinvien" method="post">
+                                        <div class="form-group">
+                                            <label for="mssv" class="col-sm-2 control-label">Ma Sinh Vien</label>
+                                            <div class="col-sm-10">
+                                                <input type="mssv" class="form-control" id="mssv" name="mssv"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tensv" class="col-sm-2 control-label">Tên sinh viên</label>
+                                            <div class="col-sm-10">
+                                                <input type="tensv" class="form-control" id="tensv" name="tensv"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ID" class="col-sm-2 control-label">Mail vnu</label>
+                                            <div class="col-sm-10">
+                                                <input type="mailsv" class="form-control" id="mailsv" name="mailsv"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nganhsv" class="col-sm-2 control-label">Nganh hoc</label>
+                                            <div class="col-sm-10">
+                                                <input type="nganhsv" class="form-control" id="nganhsv" name="nganhsv"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="khoahoc" class="col-sm-2 control-label">Khoa hoc</label>
+                                            <div class="col-sm-10">
+                                                <input type="khoahoc" class="form-control" id="khoahoc" name="khoahoc"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="passwordsv" class="col-sm-2 control-label">Password</label>
+                                            <div class="col-sm-10">
+                                                <input type="passwordsv" class="form-control" id="passwordsv" name="passwordsv"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-actionbar">
+                                            <div class="card-actionbar-row">
+                                                <button type="submit" class="btn btn-flat btn-primary ink-reaction">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div> <!-- end tab edit -->
+                                    </div>  <!-- endtab -->
+                                </div> <!--endcard-->
+
+                                <div class="tab-pane active" id="tab-edit">
+                                    <form class="form-horizontal" action="/users/add_one_giangvien" method="post">
+                                        <div class="form-group">
+                                            <label for="chuyennganh" class="col-sm-2 control-label">Chuyên ngành</label>
+                                            <div class="col-sm-10">
+                                                <input type="chuyennganh" class="form-control" id="chuyennganh" name="chuyennganh"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="khoa" class="col-sm-2 control-label">Khoa</label>
+                                            <div class="col-sm-10">
+                                                <input type="khoa" class="form-control" id="khoa" name="khoa"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="bomon" class="col-sm-2 control-label">Giang day bo mon</label>
+                                            <div class="col-sm-10">
+                                                <input type="bomon" class="form-control" id="bomon" name="bomon"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ID" class="col-sm-2 control-label">ID</label>
+                                            <div class="col-sm-10">
+                                                <input type="ID" class="form-control" id="ID" name="ID"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-2 control-label">Username</label>
+                                            <div class="col-sm-10">
+                                                <input type="username" class="form-control" id="username" name="username"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="email" name="email"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="col-sm-2 control-label">Password</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" class="form-control" id="password" name="password"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sodt" class="col-sm-2 control-label">So Dien Thoai</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" class="form-control" id="sodt" name="sodt"><div class="form-control-line"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-actionbar">
+                                            <div class="card-actionbar-row">
+                                                <button type="submit" class="btn btn-flat btn-primary ink-reaction">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div> <!-- end tab edit -->
+                                    </div>  <!-- endtab -->
+                                </div> <!--endcard-->
+
+                                <!--Add Dang ky de tai-->
+                                <div class="tab-pane active" id="tab-edit2">
+                                    <h4 align="center">Danh sach Sinh vien co the dang ky de tai</h4>
+                                    <form class="form-inline" action="/users/add_one_giangvien" method="post">
+                                        <div>
+                                            <input type="text" name="msv" placeholder="MSSV">
+                                            <input type="text" name="msv" value="Co the dang ky de tai" readonly>
+                                            <button type="button" id="btn-add">Add New</button>
+                                            <button type="button" id="btn-update">Update</button>
+                                        </div>
+                                    </form>
+                                    <hr>
+
+                                    <table class="table">
+                                        <thead>
+                                            <th>Ma so Sinh vien</th>
+                                            <th>Dang ky de tai</th>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div> <!--endcard-->
+
+                            </div>
+                        </div>
+                    </div>
+        </section>
+    </div><!--end #content-->
+    <!-- END CONTENT -->
+    <%- include('../menubar'); %>
+</div><!--end #base-->
+<!-- END BASE -->
+
+<!-- BEGIN JAVASCRIPT -->
+<script src="/assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+<script src="/assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="/assets/js/libs/bootstrap/bootstrap.min.js"></script>
+<script src="/assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
+<script src="/javascripts/upload.js"></script>
+<script src="/javascripts/uploadsv.js"></script>
+<script src="/javascripts/uploaddkdetai.js"></script>
+<script src="/javascripts/addsvdkdetai.js"></script>
+<!-- Put App.js last in your javascript imports -->
+<script src="/assets/js/core/source/App.min.js"></script>
+<!-- <script src="/assets/js/core/source/AppNavigation.js"></script> -->
+
+
+</body>
+</html>

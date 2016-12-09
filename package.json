@@ -1,0 +1,37 @@
+{
+  "name": "ThesisMgr",
+  "version": "1.0.0",
+  "description": "Simple authentication system",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Duc Khanh",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "connect-roles": "^3.1.2",
+    "cookie-parser": "^1.4.1",
+    "ejs": "*",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "formidable": "^1.0.17",
+    "mongodb": "*",
+    "mongoose": "*",
+    "multer": "^1.2.0",
+    "mysql": "*",
+    "mysql2": "^1.1.2",
+    "nodemailer": "^2.6.4",
+    "orm": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "sequelize": "^3.27.0",
+    "xlsx":"*"
+  }
+}

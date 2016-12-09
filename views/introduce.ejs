@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Material Admin - Dynamic tables</title>
+
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your,keywords">
+    <meta name="description" content="Short explanation about this website">
+    <!-- END META -->
+
+    <!-- BEGIN STYLESHEETS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css'/>
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/bootstrap.css?1422792965" />
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/materialadmin.css?1425466319" />
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/font-awesome.min.css?1422529194" />
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/material-design-iconic-font.min.css?1421434286" />
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/libs/DataTables/jquery.dataTables.css?1423553989" />
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/libs/DataTables/extensions/dataTables.colVis.css?1423553990" />
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/libs/DataTables/extensions/dataTables.tableTools.css?1423553990" />
+    <!-- END STYLESHEETS -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../../assets/js/libs/utils/html5shiv.js?1403934957"></script>
+    <script type="text/javascript" src="../../assets/js/libs/utils/respond.min.js?1403934956"></script>
+    <![endif]-->
+</head>
+<body class="menubar-hoverable header-fixed ">
+<%- include('header') %>
+<!-- BEGIN BASE-->
+<div id="base">
+    <!-- BEGIN CONTENT-->
+    <div id="content">
+        <section>
+            <div class="section-body">
+                <div class="row">
+
+                    <!-- BEGIN REGISTRATION HISTORY -->
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-head">
+                                <header style="font-size: 30px;">Khoa Công nghệ thông tin</header>
+                            </div><!--end .card-head -->
+                            <section class="entry-body">
+                                <div class="entry-content clearfix">
+                                    <p><img class="size-full wp-image-2516 aligncenter" src="http://fit.uet.vnu.edu.vn/wp-content/uploads/2015/12/IMG_7907-new.jpg" alt="IMG_7907-new" width="1024" height="614" srcset="http://fit.uet.vnu.edu.vn/wp-content/uploads/2015/12/IMG_7907-new.jpg 1024w, http://fit.uet.vnu.edu.vn/wp-content/uploads/2015/12/IMG_7907-new-450x270.jpg 450w, http://fit.uet.vnu.edu.vn/wp-content/uploads/2015/12/IMG_7907-new-768x461.jpg 768w, http://fit.uet.vnu.edu.vn/wp-content/uploads/2015/12/IMG_7907-new-900x540.jpg 900w" sizes="(max-width: 1024px) 100vw, 1024px"></p>
+                                    <h3><strong>Quá trình phát triển</strong></h3>
+                                    <p>Ngày 11/2/1995, Giám đốc Đại học Quốc gia Hà Nội (ĐHQGHN) ra quyết định thành lập Khoa Công nghệ Thông tin (CNTT) thuộc Trường Đại học Tổng hợp Hà Nội (ĐHTHHN), sau này là Trường Đại học Khoa học Tự nhiên (ĐHKHTN). Việc thành lập Khoa CNTT là kết quả tích hợp từ ba tiền đề chính. Đầu tiên, trên cơ sở Nghị định 49/CP ngày 04/8/1993 của Chính phủ, Kế hoạch tổng thể phát triển CNTT tới năm 2000 của đất nước xác định một nội dung nhiệm vụ là thành lập các khoa CNTT trọng điểm tại hai đại học quốc gia, các trường đại học bách khoa tại Hà Nội, thành phố Hồ Chí Minh và Đà Nẵng. Khoa CNTT, Trường ĐHTHHN, ĐHQGHN là khoa CNTT được thành lập đầu tiên trong cả nước. Tiếp đến, kế hoạch tổng thể phát triển ĐHQGHN xác định phương châm xây dựng một trường đại học công nghệ trọng điểm thuộc ĐHQGHN dựa trên cơ sở hình thành và phát triển nội tại 15namtrong ĐHQGHN các đơn vị đào tạo – nghiên cứu thuộc lĩnh vực công nghệ. Khoa CNTT được coi là thành phần chủ chốt đầu tiên trong kế hoạch hình thành trường đại học công nghệ trọng điểm thuộc ĐHQGHN. Cuối cùng, và là tiền đề có vị trí trọng tâm nhất, việc thành lập Khoa CNTT ghi nhận thành quả của một quá trình phấn đấu lao động đào tạo – nghiên cứu ba mươi năm (1965-1995) của đội ngũ cán bộ tâm huyết thuộc Khoa Toán – Cơ – Tin học và Viện Tin học – Điện tử, Trường ĐHTHHN.
+
+                                        Tại thời điểm thành lập vào tháng 02/1995, Khoa CNTT có 22 cán bộ, trong đó có 5 Phó Giáo sư (PGS), 7 Tiến sỹ (TS), 8 giảng viên chính và giảng viên, hai cán bộ văn phòng và 5 cán bộ hợp đồng. Tại thời điểm thành lập, Khoa có ba bộ môn là Bộ môn Khoa học Máy tính (KHMT), Bộ môn H20namệ thống thông tin (HTTT) và Bộ môn Mạng và Truyền thông máy tính (Mạng&TTMT). Khoa quản lý hai lớp sinh viên K38 và K39 chính quy không tập trung với trên 140 sinh viên. Kế thừa và phát huy truyền thống của Ban Máy tính, Bộ môn Tin học của Khoa Toán–Cơ–Tin học (giai đoạn 1965 – 1995), của Viện Tin học – Điện tử (giai đoạn 1990-1995), Khoa CNTT luôn giữ vững vị thế của một Khoa CNTT trọng điểm hàng đầu đất nước, đồng thời từng bước tăng cường vị thế trong khu vực và châu lục. Tới tháng 11/2015, đội ngũ giảng viên cơ hữu của Khoa CNTT gồm có 01 Giáo sư, 16 PGS, 30 TS, 22 Thạc sỹ (có 9 NCS TS) cùng 9 cán bộ tạo nguồn. Ngoài ra, Khoa CNTT còn có 21 giảng viên kiêm nhiệm có trình độ từ TS trở lên (10 nhà khoa học ở ngoài nước, 11 nhà khoa học ở trong nước).</p>
+                                    <h3><strong>Sứ mệnh</strong></h3>
+                                    <p>Dựa trên mục tiêu và sứ mệnh của Trường ĐHCN, Khoa CNTT đóng góp vào các mục tiêu này thông qua:<br>
+                                        (a) Đào tạo và bồi dưỡng nguồn nhân lực ngành CNTT và Máy tính chất lượng cao ở trình độ đại học và sau đại học;<br>
+                                        (b) Nghiên cứu phát triển và ứng dụng các lĩnh vực khoa học – công nghệ tiên tiến trên cơ sở phát huy thế mạnh về Khoa học Cơ bản và Công nghệ Thông tin và Truyền thông;<br>
+                                        (c) Tiên phong tiếp cận chuẩn mực giáo dục đại học khu vực và thế giới, đóng góp tích cực vào sự phát triển nền kinh tế và xã hội tri thức của đất nước.</p>
+                                    <h3><strong>Tầm nhìn</strong></h3>
+                                    <p>Trở thành địa chỉ xuất sắc về đào tạo đại học, trung tâm công nghệ mới, và nằm trong tốp đầu quốc gia và khu vực về đào tạo và nghiên cứu trong lĩnh vực CNTT.</p>
+                                </div>
+                            </section>
+                        </div><!--end .card -->
+                    </div><!--end .col -->
+                    <!-- END REGISTRATION HISTORY -->
+                    <!-- BEGIN NEW REGISTRATIONS -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-head">
+                                <header>Tin tức mới nhất</header>
+                                <div class="tools hidden-md">
+                                    <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                </div>
+                            </div><!--end .card-head -->
+                            <div class="card-body ">
+                                <ul class="list divider-full-bleed">
+                                    <li class="tile">
+                                        <div class="tile-content">
+                                            <div class="tile-icon">
+                                                <img src="../../assets/img/avatar9.jpg?1404026744" alt="" />
+                                            </div>
+                                            <div class="tile-text">Công ty Appota: Thông tin tuyển dụng</div>
+                                        </div>
+                                    </li>
+                                    <li class="tile">
+                                        <div class="tile-content">
+                                            <div class="tile-icon">
+                                                <img src="../../assets/img/avatar4.jpg?1404026791" alt="" />
+                                            </div>
+                                            <div class="tile-text">Cựu sinh viên Khoa Công nghệ Thông tin – Trường Đại học Công nghệ, ĐHQGHN được vinh danh tại Nhân tài Đất Việt 2016</div>
+                                        </div>
+                                    </li>
+                                    <li class="tile">
+                                        <div class="tile-content">
+                                            <div class="tile-icon">
+                                                <img src="../../assets/img/avatar11.jpg?1404026774" alt="" />
+                                            </div>
+                                            <div class="tile-text">Chương trình hỗ trợ học bổng, đào tạo tiếng Nhật và việc làm tại thị trường Nhật Bản</div>
+                                        </div>
+                                    </li>
+                                    <li class="tile">
+                                        <div class="tile-content">
+                                            <div class="tile-icon">
+                                                <img src="../../assets/img/avatar7.jpg?1404026721" alt="" />
+                                            </div>
+                                            <div class="tile-text">Tổng Công ty Mạng lưới Viettel: Thông báo tuyển dụng Kỹ sư Công nghệ thông tin</div>
+                                        </div>
+                                    </li>
+                                    <li class="tile">
+                                        <div class="tile-content">
+                                            <div class="tile-icon">
+                                                <img src="../../assets/img/avatar11.jpg?1404026774" alt="" />
+                                            </div>
+                                            <div class="tile-text">Thông báo: Hội nghị Đối thoại sinh viên cấp Khoa (18h00, 22/11/2016)</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!--end .card-body -->
+                        </div><!--end .card -->
+                    </div><!--end .col -->
+                    <!-- END NEW REGISTRATIONS -->
+                    <!-- BEGIN NEW REGISTRATIONS -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-head">
+                                <header>Bộ môn</header>
+                                <div class="tools hidden-md">
+                                    <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                </div>
+                            </div><!--end .card-head -->
+                            <div class="card-body ">
+                                <ul class="list divider-full-bleed">
+                                    <li class="tile">
+                                        <div class="tile-content">
+                                            <div class="tile-text">Các hệ thông thông tin</div>
+                                        </div>
+                                    </li>
+                                    <li class="tile">
+                                        <div class="tile-content">
+
+                                            <div class="tile-text">Công nghệ phần mềm</div>
+                                        </div>
+                                    </li>
+                                    <li class="tile">
+                                        <div class="tile-content">
+
+                                            <div class="tile-text">Khoa học Máy tính</div>
+                                        </div>
+                                    </li>
+                                    <li class="tile">
+                                        <div class="tile-content">
+
+                                            <div class="tile-text">Khoa học và Kỹ thuật tính toán</div>
+                                        </div>
+                                    </li>
+                                    <li class="tile">
+                                        <div class="tile-content">
+
+                                            <div class="tile-text">Mạng và truyền thông Máy tính</div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div><!--end .card-body -->
+                        </div><!--end .card -->
+                    </div><!--end .col -->
+                    <!-- END NEW REGISTRATIONS -->
+
+                    <!-- BEGIN NEW REGISTRATIONS -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-head">
+                                <header>Sự kiện</header>
+                                <div class="tools hidden-md">
+                                    <a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+                                </div>
+                            </div><!--end .card-head -->
+                        </div><!--end .card -->
+                    </div><!--end .col -->
+                    <!-- END NEW REGISTRATIONS -->
+
+                </div><!--end .row -->
+            </div><!--end .section-body -->
+        </section>
+    </div><!--end #content-->
+    <!-- END CONTENT -->
+</div>
+
+<%- include('menubar'); %>
+</div><!--end #base-->
+<!-- END BASE -->
+
+<!-- BEGIN JAVASCRIPT -->
+<script src="../../assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+<script src="../../assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="../../assets/js/libs/bootstrap/bootstrap.min.js"></script>
+<script src="../../assets/js/libs/spin.js/spin.min.js"></script>
+<script src="../../assets/js/libs/autosize/jquery.autosize.min.js"></script>
+<script src="../../assets/js/libs/DataTables/jquery.dataTables.min.js"></script>
+<script src="../../assets/js/libs/DataTables/extensions/ColVis/js/dataTables.colVis.min.js"></script>
+<script src="../../assets/js/libs/DataTables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+<script src="../../assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
+<script src="../../assets/js/core/source/App.js"></script>
+<script src="../../assets/js/core/source/AppNavigation.js"></script>
+<script src="../../assets/js/core/source/AppOffcanvas.js"></script>
+<script src="../../assets/js/core/source/AppCard.js"></script>
+<script src="../../assets/js/core/source/AppForm.js"></script>
+<script src="../../assets/js/core/source/AppNavSearch.js"></script>
+<script src="../../assets/js/core/source/AppVendor.js"></script>
+<script src="../../assets/js/core/demo/Demo.js"></script>
+<script src="../../assets/js/core/demo/DemoTableDynamic.js"></script>
+<!-- END JAVASCRIPT -->
+
+</body>
+</html>
