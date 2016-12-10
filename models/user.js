@@ -10,6 +10,9 @@
          methods : {
              infomation : function () {
                  return this.tenNguoiDung +' mk:' + this.matKhau;
+             },
+             validPassword: function (password) {
+                 return this.matKhau == password;
              }
          }
      });

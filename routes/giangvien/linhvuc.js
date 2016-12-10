@@ -1,11 +1,9 @@
 var express = require('express');
-var User = require('../users');
 var orm = require('orm');
 
 module.exports = function (app) {
     app.post('/users/giangvien/linhvuc', function (req, res) {
 
-        console.log(User.id);
         console.log(JSON.stringify(req.body));
         orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
             if (err) throw err;
@@ -13,7 +11,7 @@ module.exports = function (app) {
                 if (err) throw err;
                 var LinhvucLienquan = db.models.giangvien_linhvuc;
 
-                LinhvucLienquan.find({giangvien_id: User.id}).remove(function (err) {
+                LinhvucLienquan.find({giangvien_id: req.user.id}).remove(function (err) {
                     if (err) {
                         throw err;
                     }
@@ -25,10 +23,10 @@ module.exports = function (app) {
                     }
                     else if(req.body.linhvuc instanceof Array){
                         req.body.linhvuc.forEach(function (linhvucId) {
-                            linhvuc.push({giangvien_id: User.id, linhvuc_id: linhvucId});
+                            linhvuc.push({giangvien_id: req.user.id, linhvuc_id: linhvucId});
                         });
                     }else {
-                        linhvuc.push({giangvien_id: User.id, linhvuc_id: req.body.linhvuc});
+                        linhvuc.push({giangvien_id: req.user.id, linhvuc_id: req.body.linhvuc});
                     }
                     LinhvucLienquan.create(linhvuc, function (err, items) {
                         if (err) {

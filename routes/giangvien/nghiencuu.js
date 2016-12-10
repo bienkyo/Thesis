@@ -5,7 +5,7 @@ var orm = require('orm');
 module.exports = function (app) {
     app.post('/users/giangvien/nghiencuu', function (req, res) {
 
-        console.log("Adding entry for user id " + User.id);
+        console.log("Adding entry for user id " + req.user.id);
 
         orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
             if (err) {
@@ -40,7 +40,7 @@ module.exports = function (app) {
                                     }
                                     var NghienCuu = db.models.nghiencuu;
                                     NghienCuu.create({
-                                        giangvien_id: User.id,
+                                        giangvien_id: req.user.id,
                                         chuDe_tenChuDe: req.body.chude,
                                         moTa: req.body.mota
                                     }, function (err) {
@@ -66,7 +66,7 @@ module.exports = function (app) {
                                 }
                                 var NghienCuu = db.models.nghiencuu;
                                 NghienCuu.create({
-                                    giangvien_id: User.id,
+                                    giangvien_id: req.user.id,
                                     chuDe_tenChuDe: req.body.chude,
                                     moTa: req.body.mota
                                 }, function (err) {
@@ -94,7 +94,7 @@ module.exports = function (app) {
     });
 
     app.delete('/users/giangvien/nghiencuu/:id', function (req, res) {
-        console.log('Remove userId=' + User.id + " chude=" + req.params.id);
+        console.log('Remove userId=' + req.user.id + " chude=" + req.params.id);
         orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
                 if (err) {
                     throw  err;
@@ -107,7 +107,7 @@ module.exports = function (app) {
                     var NghienCuu = db.models.nghiencuu;
                     NghienCuu.find(
                         {
-                            giangvien_id: User.id,
+                            giangvien_id: req.user.id,
                             chuDe_tenChuDe: req.params.id
                         }, function (err, nghiencuu) {
                             nghiencuu[0].remove(function (err) {

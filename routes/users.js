@@ -1,157 +1,174 @@
 var express = require('express');
-var router  = express.Router();
-var orm     = require('orm');
+var router = express.Router();
+var orm = require('orm');
 var Sequelize = require('sequelize');
-var con       = require('../utils/sqlhelper');
+var con = require('../utils/sqlhelper');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
-router.get('/login',function (req, res, next) {
+passport.serializeUser(function (user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function (id, done) {
+    orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
+        if (err) throw err;
+
+        db.load('../models/user', function (err) {
+            if (err) throw err;
+
+            var Person = db.models.user;
+            Person.get(id, function (err, person) {
+                done(err, person);
+            })
+        });
+    });
+});
+
+passport.use(new LocalStrategy(function (username, password, done) {
+    orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
+        if (err) throw done(err);
+
+        db.load('../models/user', function (err) {
+            if (err) throw done(err);
+
+            var Person = db.models.user;
+            Person.find({tenNguoiDung: username}, function (err, person) {
+
+                if (err) throw  done(err);
+                var user = person[0];
+                if (!user) {
+                    console.log('Unknown user');
+                    return done(null, false, {message: 'Tên người dùng không tồn tại'});
+                }
+
+                if (!user.validPassword(password)) {
+                    return done(null, false, {message: 'Sai mật khẩu'});
+                }
+                return done(null, user);
+            });
+        });
+    });
+}));
+
+
+router.get('/login', function (req, res, next) {
     res.render('login');
 });
 
 // router.get('/profile',function (req, res) {
 //     res.render('profile');
 // })
-// router.post('/login',function (req, res) {
-//     var userName = req.body.username;
-//     var password = req.body.password;
-//     console.log(userName+' '+ password);
+router.post('/login', passport.authenticate('local', {
+    failureRedirect: '/login',
+    failureFlash: 'Invalid username or password'
+}), function (req, res) {
+    console.log('Authentication successfull');
+    res.redirect('/users/profile');
+});
 
-    orm.connect('mysql://root:yahoo24@localhost/mydb',function (err, db) {
-        if(err) throw err;
+router.get('/profile', function (req, res) {
+    var user = req.user;
+    orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
+        if (user == null) {
+            console.log('not exist account, please try again');
+        } else if (user.quyen == 'admin') {
+            var id;
+            module.exports.id = user.id;
+            console.log('ban la admin');
+            res.render('admin/admin', {
+                "row": user
+            })
+        }
+        else if (user.quyen == 'giang_vien') {
+            console.log('ban la giang vien');
+            module.exports.id = user.id;
 
-        db.load('../models/user',function (err) {
-            if (err) throw err;
 
-            var Person = db.models.user;
-
-
-
-            router.post('/profile',function (req, res) {
-                var userName= req.body.username;
-                console.log(userName);
-
-                var password= req.body.password;
-                Person.find({tenNguoiDung:userName,matKhau:password},function (err, person) {
-                    if(err) throw err;
-
-
-                    if(person[0]==null){
-                        console.log('not exist account, please try again');
-                    } else if(person[0].quyen=='admin'){
-                        var id;
-                        module.exports.id= person[0].id;
-                        console.log('ban la admin');
-                        res.render('admin/admin',{
-                            "row":person[0]
-                        })
-                    } else if(person[0].quyen=='giang_vien'){
-                        console.log('ban la giang vien');
-                        module.exports.id= person[0].id;
-
-                       // con.query('SELECT * FROM giangvien WHERE ID=?',person[0].id,function (err, gv) {
+            db.load('../models/giangvien', function (err) {
+                if (err) {
+                    throw err;
+                }
+                db.load('../models/linhvuc', function (err) {
+                    if (err) {
+                        throw err;
+                    }
+                    var LinhVuc = db.models.linhvuc;
+                    var Giang_Vien = db.models.giangvien;
+                    var NghienCuu = db.models.nghiencuu;
+                    Giang_Vien.hasMany('linhvuc', LinhVuc, {}, {reverse: 'giangvien'});
+                    NghienCuu.hasOne('giangvien', Giang_Vien, {reverse: 'nghiencuu'});
+                    db.load('../models/detai', function (err) {
+                        if (err) {
+                            throw err;
+                        }
+                        var Detai = db.models.detai;
+                        Giang_Vien.get(user.id, function (err, gv) {
                             if (err) throw err;
+                            gv.getLinhvuc(function (err, linhvuc) {
+                                if (err) throw  err;
+                                var lvlienquan = linhvuc;
 
-                            // con.query('SELECT * FROM detai WHERE giangVien_ID=?',person[0].id,function (err, detai) {
-                            //     if (err) throw err;
-                            //     console.log(detai[0]);
-                            //     res.render('giangvien/giangvien',{
-                            //         "row":gv[0],
-                            //         "username":userName,
-                            //         "password":password,
-                            //         "vnumail":person[0].vnuMail,
-                            //         "detai": detai
-                            //     })
-                            // })
-
-
-
-                        db.load('../models/giangvien', function (err) {
-                            if (err) {
-                                throw err;
-                            }
-                            db.load('../models/linhvuc', function (err) {
-                                if (err) {
-                                    throw err;
-                                }
-                                var LinhVuc = db.models.linhvuc;
-                                var Giang_Vien = db.models.giangvien;
-                                var NghienCuu = db.models.nghiencuu;
-                                Giang_Vien.hasMany('linhvuc', LinhVuc, {}, {reverse: 'giangvien'});
-                                NghienCuu.hasOne('giangvien', Giang_Vien, {reverse: 'nghiencuu'});
-                                db.load('../models/detai',function (err) {
-                                    if(err){
-                                        throw err;
+                                gv.getNghiencuu(function (err, nghiencuus) {
+                                    if (err) {
+                                        throw  err;
                                     }
-                                    var Detai = db.models.detai;
-                                    Giang_Vien.get(person[0].id, function (err, gv) {
-                                        if (err) throw err;
-                                        gv.getLinhvuc(function (err, linhvuc) {
-                                            if (err) throw  err;
-                                            var lvlienquan = linhvuc;
-
-                                            gv.getNghiencuu(function (err, nghiencuus) {
-                                                if (err) {
-                                                    throw  err;
-                                                }
-                                                LinhVuc.find({}, function (err, linhvuc) {
-                                                    if (err) {
-                                                        throw err;
-                                                    }
-                                                    linhvuc.forEach(function (e) {
-                                                        if (lvlienquan.find(function (lv) {
-                                                                return lv.ID == e.ID;
-                                                            })) {
-                                                            e.checked = true;
-                                                        }
-                                                    });
-                                                    Detai.find({giangVien_ID: person[0].id},function (err, detai) {
-                                                        if(err) throw  err;
-                                                        res.render('giangvien/giangvien', {
-                                                            "row": gv,
-                                                            "username": userName,
-                                                            "password": person[0].tenNguoiDung,
-                                                            "vnumail": person[0].vnuMail,
-                                                            "linhvuc": linhvuc,
-                                                            "nghiencuus": nghiencuus,
-                                                            "detai": detai
-                                                        });
-                                                    })
-
-                                                });
-                                            });
+                                    LinhVuc.find({}, function (err, linhvuc) {
+                                        if (err) {
+                                            throw err;
+                                        }
+                                        linhvuc.forEach(function (e) {
+                                            if (lvlienquan.find(function (lv) {
+                                                    return lv.ID == e.ID;
+                                                })) {
+                                                e.checked = true;
+                                            }
                                         });
+                                        Detai.find({giangVien_ID: user.id}, function (err, detai) {
+                                            if (err) throw  err;
+                                            res.render('giangvien/giangvien', {
+                                                "row": gv,
+                                                "username": user.tenNguoiDung,
+                                                "password": user.matKhau,
+                                                "vnumail": user.vnuMail,
+                                                "linhvuc": linhvuc,
+                                                "nghiencuus": nghiencuus,
+                                                "detai": detai
+                                            });
+                                        })
+
                                     });
                                 });
-
-
-                            })
+                            });
                         });
+                    });
 
-                    } else if(person[0].quyen==null) {
-                        console.log('ban la sinh vien');
-                        console.log(person[0].id);
-
-                        con.query('SELECT * FROM nguoihoc WHERE MSSV=?',person[0].id,function (err, rows) {
-                            console.log(rows[0]);
-                            con.query('SELECT * FROM user WHERE id=?',person[0].id,function (err, row) {
-                                console.log(row[0]);
-                                res.render('sinhvien/profile',{
-                                    "nguoihoc":rows[0],
-                                    "user":row[0]
-                                });
-                            })
-
-                        })
-
-                    }
 
                 })
             });
 
+        }
+        else if (user.quyen == null) {
+            console.log('ban la sinh vien');
+            console.log(user.id);
 
-        })
-    })
-// })
+            con.query('SELECT * FROM nguoihoc WHERE MSSV=?', user.id, function (err, rows) {
+                console.log(rows[0]);
+                con.query('SELECT * FROM user WHERE id=?', user.id, function (err, row) {
+                    console.log(row[0]);
+                    res.render('sinhvien/profile', {
+                        "nguoihoc": rows[0],
+                        "user": row[0]
+                    });
+                })
+
+            })
+
+        }
+    });
+
+});
+
 
 module.exports = router;
 

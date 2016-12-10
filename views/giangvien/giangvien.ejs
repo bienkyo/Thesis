@@ -128,7 +128,7 @@
                                         </div>
                                     </div><!--  end-aboutarea -->
                                 </div><!--  tab-about -->
-                                <div class="tab-pane" id="tab-edit">
+                                <div class="tab-pane" id="tab-update">
                                     <form class="form-horizontal" action="/users/giangvien/edit" method="post">
                                         <div class="form-group">
                                             <label for="chuyennganh" class="col-sm-2 control-label">Chuyên ngành</label>
@@ -171,41 +171,6 @@
                                     <div> <!-- end tab edit -->
                                     </div>  <!-- endtab -->
                                 </div> <!--endcard-->
-
-                                <!--Danh sach sinh vien gui dang ky de tai-->
-
-                                <div class="tab-pane" id="tab-dkdt">
-
-                                    <h4 align="center">Danh sach Sinh vien gui dang ky de tai</h4>
-                                    <hr>
-                                    <table class="table">
-                                        <thead>
-                                        <th>Ma so Sinh vien</th>
-                                        <th>De tai Dang ky</th>
-                                        <th>Ma de tai</th>
-                                        </thead>
-                                        <tbody>
-                                        <% detai.forEach(function (detai) { %>
-                                        <tr>
-                                            <td><%= detai.nguoiHoc_MSSV %></td>
-                                            <td><%= detai.tenDeTai %></td>
-                                            <td><%= detai.ID %></td>
-                                            <td>
-                                                <button id="btn-chapnhan">Chap Nhan</button>
-                                            </td>
-                                            <td>
-                                                <button id="btn-huybo">Huy bo</button>
-                                            </td>
-                                        </tr>
-                                        <% }) %>
-
-                                        </tbody>
-                                    </table>
-                                    <div> <!-- end tab edit -->
-                                    </div>  <!-- endtab -->
-                                </div> <!--endcard-->
-                                <!--Danh sach sinh vien gui dang ky de tai-->
-
                                  <!--endcard-->
                             </div>
                         </div>
@@ -317,6 +282,7 @@
 <script src="/assets/js/core/source/AppNavSearch.js"></script>
 <script src="/assets/js/core/source/AppVendor.js"></script>
 <script src="/javascripts/giangvien.js"></script>
+<script src="/javscripts/gvquanlydetai.js"></script>
 <!-- Put App.js last in your javascript imports -->
 
 
