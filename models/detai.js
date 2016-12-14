@@ -8,11 +8,16 @@ module.exports = function (db, cb) {
         thoiGianSua: Date,
         nopHoSoChua: Number,
         duocBaoVeKhong: Number,
-        nopQuyenChua: Number
+        nopQuyenChua: Number,
+        choDuocDuyet: Number
     },{
         methods : {
             infomation : function () {
                 return this.tenBoMon +' mk:' + this.moTa;
+            },
+            xinHuy: function () {
+                this.choDuocDuyet = 1;
+                return this;
             }
         }
     });

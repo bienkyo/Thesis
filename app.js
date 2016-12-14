@@ -239,6 +239,7 @@ fiveFunction();
 require('./routes/admin/add_giangvien.js')(app);
 require('./routes/admin/quanly.js')(app);
 require('./routes/admin/detai.js')(app);
+require('./routes/admin/export.js')(app);
 require('./routes/giangvien/edit.js')(app);
 require('./routes/giangvien/quanly.js')(app);
 require('./routes/admin/add_sinhvien.js')(app);

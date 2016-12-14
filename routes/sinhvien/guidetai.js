@@ -1,5 +1,6 @@
 var express = require('express');
 var con = require('../../utils/sqlhelper');
+var orm = require('../../utils/orm-connector');
 
 module.exports = function (app) {
     app.post('/users/sinhvien/dkdetai',function (req,res) {
@@ -33,5 +34,25 @@ module.exports = function (app) {
 
 
 
-    })
+    });
+    app.post('/users/sinhvien/huydetai',function (req,res) {
+        var userId = req.user.id;
+        orm(function (err,db) {
+            if (err) throw err;
+
+            db.load('../../models/detai', function (err) {
+                if(err) throw err;
+                var Detai = db.models.detai;
+                Detai.find({'nguoiHoc_MSSV': userId},function (err, detai) {
+                   detai[0].save(function (err) {
+                       if (err){
+                           console.log(err.message);
+                           return;
+                       }
+                       res.json({success: true});
+                   });
+                });
+            });
+        });
+    });
 }

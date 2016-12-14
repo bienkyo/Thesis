@@ -12,9 +12,9 @@ module.exports.mailTo = function(post, callback){
     var mainOptions = {
       from: 'No Reply <thesismanager_noreply@gmail.com>',
       to: post.vnuMail,
-      subject: "Update your account",
-      text: 'Use this password to update your account: ' + post.matKhau,
-      html: 'Use this password to update your account:<p>' + post.matKhau + '</p>'
+      subject: "Xin chao, ",
+      text: "Tai khoan de dang nhap he thong la\nUsername: " + post.tenNguoiDung + "\nPassword: " + post.matKhau,
+      html: "Tai khoan de dang nhap he thong la</br>Username: " + post.tenNguoiDung + "</br>Password: " + post.matKhau
     };
     transporter.sendMail(mainOptions,callback);
     // function(error,info) {
