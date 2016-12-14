@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Material Admin - Dynamic tables</title>
+
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your,keywords">
+    <meta name="description" content="Short explanation about this website">
+    <!-- END META -->
+
+    <!-- BEGIN STYLESHEETS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css'/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/bootstrap.css?1422792965" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/materialadmin.css?1425466319" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/font-awesome.min.css?1422529194" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/material-design-iconic-font.min.css?1421434286" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/libs/DataTables/jquery.dataTables.css?1423553989" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.colVis.css?1423553990" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.tableTools.css?1423553990" />
+    <!-- END STYLESHEETS -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/assets/js/libs/utils/html5shiv.js?1403934957"></script>
+    <script type="text/javascript" src="/assets/js/libs/utils/respond.min.js?1403934956"></script>
+    <![endif]-->
+</head>
+<body class="menubar-hoverable header-fixed ">
+<%- include('../header') %>
+<!-- BEGIN BASE-->
+<div id="base">
+    <!-- BEGIN CONTENT-->
+    <div id="content">
+        <section>
+            <div class="section-body content-lg">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img class="img-circle border-white border-xl img-responsive profile-avatar col-centered"  alt=""
+                                     src="/images/gv.gif">
+                                <h3 class="text-center"><%=username%><br><small>Computer Sicence</small></h3>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-head">
+                                <ul class="nav nav-tabs" data-toggle="tabs">
+                                    <li class="active"><a href="#tab-about">About</a></li>
+                                    <li><a href="#tab-edit">More</a></li>
+                                </ul>
+                            </div>
+                            <div class="card-body tab-content">
+                                <div class="tab-pane" id="tab-about">
+                                    <div class="about-area">
+                                        <h4 class="text-default-light">Thông tin cá nhân</h4>
+                                        <div class="table-responsive">
+                                            <table class="table about-table">
+                                                <tbody>
+                                                <tr>
+                                                    <th>Ma giang vien</th>
+                                                    <td><%= row.ID%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Ho va ten</th>
+                                                    <td><%= username%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dia chi mail vnu</th>
+                                                    <td><%= vnumail%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Mat Khau</th>
+                                                    <td><%= password%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>So dien Thoai lien lac</th>
+                                                    <td><%= row.soDienThoai%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Thuoc ve khoa</th>
+                                                    <td><%= row.khoa_khKhoa%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Website</th>
+                                                    <td><a href="#">UET.vnu.edu.vn</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Email</th>
+                                                    <td><a href="#">Ctmail.vnu.edu.vn</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Phone</th>
+                                                    <td><%= row.soDienThoai%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Position</th>
+                                                    <td>Xuan Thuy,Cau Giay, Ha Noi</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div><!--  end-aboutarea -->
+                                </div><!--  tab-about -->
+                            </div>
+                        </div>
+                    </div>
+        </section>
+    </div><!--end #content-->
+    <!-- END CONTENT -->
+    <%- include('../menubar'); %>
+</div><!--end #base-->
+<!-- END BASE -->
+
+<!-- BEGIN JAVASCRIPT -->
+<script src="/assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+<script src="/assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="/assets/js/libs/bootstrap/bootstrap.min.js"></script>
+<script src="/assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
+
+<!-- Put App.js last in your javascript imports -->
+<script src="/assets/js/core/source/App.min.js"></script>
+<!-- <script src="/assets/js/core/source/AppNavigation.js"></script> -->
+
+
+</body>
+</html>
