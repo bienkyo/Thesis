@@ -18,7 +18,7 @@ var Sequelize   = require('sequelize');
 var xlsx        = require('xlsx');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var orm   = require('orm');
 
 //var profile = require('./routes/profile');
 //upload file
@@ -236,6 +236,55 @@ fiveFunction();
 
 
 
+var SevenFunction = function () {
+
+    app.post('/users/profile/uploadhosobaove', function(req, res){
+
+        console.log(req.user.id);
+        var eightFunction = function () {
+            var con= require('./utils/sqlhelper');
+
+            con.query('UPDATE detai SET nopHoSoChua=? WHERE nguoiHoc_MSSV= "'+req.user.id+'"',1,function (err, result) {
+                if (err) throw err;
+                console.log('okkk!');
+            })
+        }
+
+        setTimeout(eightFunction,5000);
+        // create an incoming form object
+        var form = new formidable.IncomingForm();
+
+        // specify that we want to allow the user to upload multiple files in a single request
+        form.multiples = true;
+
+        // store all uploads in the /uploads directory
+        form.uploadDir = path.join(__dirname, '/uploads');
+
+        // every time a file has been uploaded successfully,
+        // rename it to it's orignal name
+        form.on('file', function(field, file) {
+            fs.rename(file.path, path.join(form.uploadDir, file.name));
+        });
+
+        // log any errors that occur
+        form.on('error', function(err) {
+            console.log('An error has occured: \n' + err);
+        });
+
+        // once all the files have been uploaded, send a response to the client
+        form.on('end', function() {
+            res.end('success');
+        });
+
+        // parse the incoming request containing the form data
+        form.parse(req);
+        //console.log(req.file);
+        //require('./routes/xlsx.js')(app);
+    });
+}
+
+SevenFunction();
+
 require('./routes/admin/add_giangvien.js')(app);
 require('./routes/admin/quanly.js')(app);
 require('./routes/admin/detai.js')(app);
@@ -248,3 +297,5 @@ require('./routes/sinhvien/guidetai.js')(app);
 require('./routes/giangvien/detai.js')(app);
 require('./routes/giangvien/linhvuc.js')(app);
 require('./routes/giangvien/nghiencuu.js')(app);
+require('./routes/admin/svguidetaibaove.js')(app);
+

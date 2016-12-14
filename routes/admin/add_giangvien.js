@@ -29,7 +29,7 @@ module.exports = function (app) {
             khBomon   : bomon
         }
         console.log(post1);
-        orm.connect('mysql://root:yaoo24@localhost/mydb',function (err, db) {
+        orm.connect('mysql://root@localhost/mydb',function (err, db) {
             if (err) throw err;
 
             db.load('../../models/user',function (err) {

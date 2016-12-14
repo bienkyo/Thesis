@@ -17,7 +17,7 @@ module.exports = function (app) {
         var id=req.body.idGv;
         console.log(req.body.idGv);
 
-        orm.connect('mysql://root:yahoo24@localhost/mydb',function (err, db) {
+        orm.connect('mysql://root@localhost/mydb',function (err, db) {
             if (err) throw err;
 
             db.load('../../models/giangvien');

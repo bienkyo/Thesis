@@ -22,6 +22,9 @@ module.exports = function (app) {
             })
         })
     });
+    app.get('/user/profile',function (req, res) {
+        res.render('dashboard');
+    })
     // app.get('/users/donvi/bomon/mvttmt',function (req,res) {
     //     con.query('SELECT * FROM giangvien WHERE khBomon=?','mvttmt',function (err, rows) {
     //         if(err) throw err;
