@@ -44,7 +44,7 @@ module.exports = function (app) {
         //         console.log('insert sucsseccfull')
         //     }
         // })
-        orm.connect('mysql://root@localhost/mydb',function (err, db) {
+        orm.connect('mysql://root:yahoo24@localhost/mydb',function (err, db) {
             if (err) throw err;
             db.load('../../models/user',function (err) {
                 var User= db.models.user;

@@ -11,7 +11,7 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (id, done) {
-    orm.connect('mysql://root@localhost/mydb', function (err, db) {
+    orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
         if (err) throw err;
 
         db.load('../models/user', function (err) {
@@ -26,7 +26,7 @@ passport.deserializeUser(function (id, done) {
 });
 
 passport.use(new LocalStrategy(function (username, password, done) {
-    orm.connect('mysql://root@localhost/mydb', function (err, db) {
+    orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
         if (err) throw done(err);
 
         db.load('../models/user', function (err) {
@@ -65,12 +65,12 @@ router.post('/login', passport.authenticate('local', {
     failureFlash: 'Invalid username or password'
 }), function (req, res) {
     console.log('Authentication successfull');
-    res.redirect('/users/profile');
+    res.redirect('/user/profile');
 });
 
 router.get('/profile', function (req, res) {
     var user = req.user;
-    orm.connect('mysql://root@localhost/mydb', function (err, db) {
+    orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
         if (user == null) {
             console.log('not exist account, please try again');
         } else if (user.quyen == 'admin') {
@@ -192,7 +192,7 @@ router.get('/profile', function (req, res) {
 
 router.get('/logout',function (req, res) {
     req.logout();
-    res.redirect('/login');
+    res.redirect('/users/login');
 });
 
 

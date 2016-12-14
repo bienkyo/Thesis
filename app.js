@@ -8,17 +8,19 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var userRoles = require('./utils/user-roles');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var formidable = require('formidable');
-var fs         = require('fs');
-var multer     = require('multer');
-var db1         = require('mysql');
-var Sequelize   = require('sequelize');
-var xlsx        = require('xlsx');
+var fs = require('fs');
+var multer = require('multer');
+var db1 = require('mysql');
+var Sequelize = require('sequelize');
+var xlsx = require('xlsx');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var orm   = require('orm');
+var orm = require('orm');
+
 
 //var profile = require('./routes/profile');
 //upload file
@@ -35,7 +37,7 @@ app.set('view engine', 'ejs');
 
 // BodyParser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 // Set Static Folder
@@ -54,21 +56,23 @@ app.use(passport.session());
 
 // Express Validator
 app.use(expressValidator({
-    errorFormatter: function(param, msg, value) {
+    errorFormatter: function (param, msg, value) {
         var namespace = param.split('.')
-            , root    = namespace.shift()
+            , root = namespace.shift()
             , formParam = root;
 
-        while(namespace.length) {
+        while (namespace.length) {
             formParam += '[' + namespace.shift() + ']';
         }
         return {
-            param : formParam,
-            msg   : msg,
-            value : value
+            param: formParam,
+            msg: msg,
+            value: value
         };
     }
 }));
+
+app.use(userRoles.middleware());
 
 // Connect Flash
 app.use(flash());
@@ -83,7 +87,6 @@ app.use(function (req, res, next) {
 });
 
 
-
 app.use('/', routes);
 app.use('/users', users);
 //app.use('/users/profile',profile);
@@ -91,8 +94,8 @@ app.use('/users', users);
 // Set Port
 app.set('port', (process.env.PORT || 3000));
 
-app.listen(app.get('port'), function(){
-    console.log('Server started on port '+app.get('port'));
+app.listen(app.get('port'), function () {
+    console.log('Server started on port ' + app.get('port'));
 });
 
 require('./routes/info_giangvien.js')(app);
@@ -105,8 +108,8 @@ var secondFunction = function () {
 }
 var firstFunction = function () {
 
-    app.post('/users/profile/uploadgv', function(req, res){
-        setTimeout(secondFunction,5000);
+    app.post('/users/profile/uploadgv', function (req, res) {
+        setTimeout(secondFunction, 5000);
         // create an incoming form object
         var form = new formidable.IncomingForm();
 
@@ -118,17 +121,17 @@ var firstFunction = function () {
 
         // every time a file has been uploaded successfully,
         // rename it to it's orignal name
-        form.on('file', function(field, file) {
+        form.on('file', function (field, file) {
             fs.rename(file.path, path.join(form.uploadDir, file.name));
         });
 
         // log any errors that occur
-        form.on('error', function(err) {
+        form.on('error', function (err) {
             console.log('An error has occured: \n' + err);
         });
 
         // once all the files have been uploaded, send a response to the client
-        form.on('end', function() {
+        form.on('end', function () {
             res.end('success');
         });
 
@@ -147,13 +150,13 @@ firstFunction();
 
 var threeFunction = function () {
 
-    app.post('/users/profile/uploadsv', function(req, res){
+    app.post('/users/profile/uploadsv', function (req, res) {
 
         var fourFunction = function () {
             require('./routes/phantichExel/xlsxsv.js')(app);
         }
 
-        setTimeout(fourFunction,5000);
+        setTimeout(fourFunction, 5000);
         // create an incoming form object
         var form = new formidable.IncomingForm();
 
@@ -165,17 +168,17 @@ var threeFunction = function () {
 
         // every time a file has been uploaded successfully,
         // rename it to it's orignal name
-        form.on('file', function(field, file) {
+        form.on('file', function (field, file) {
             fs.rename(file.path, path.join(form.uploadDir, file.name));
         });
 
         // log any errors that occur
-        form.on('error', function(err) {
+        form.on('error', function (err) {
             console.log('An error has occured: \n' + err);
         });
 
         // once all the files have been uploaded, send a response to the client
-        form.on('end', function() {
+        form.on('end', function () {
             res.end('success');
         });
 
@@ -192,13 +195,13 @@ threeFunction();
 //upload file sinh vien co du dieu kien dang ky khoa luan
 var fiveFunction = function () {
 
-    app.post('/users/profile/uploaddkdetai', function(req, res){
+    app.post('/users/profile/uploaddkdetai', function (req, res) {
 
         var sixFunction = function () {
             require('./routes/phantichExel/xlsxdkdetai.js')(app);
         }
 
-        setTimeout(sixFunction,5000);
+        setTimeout(sixFunction, 5000);
         // create an incoming form object
         var form = new formidable.IncomingForm();
 
@@ -210,17 +213,17 @@ var fiveFunction = function () {
 
         // every time a file has been uploaded successfully,
         // rename it to it's orignal name
-        form.on('file', function(field, file) {
+        form.on('file', function (field, file) {
             fs.rename(file.path, path.join(form.uploadDir, file.name));
         });
 
         // log any errors that occur
-        form.on('error', function(err) {
+        form.on('error', function (err) {
             console.log('An error has occured: \n' + err);
         });
 
         // once all the files have been uploaded, send a response to the client
-        form.on('end', function() {
+        form.on('end', function () {
             res.end('success');
         });
 
@@ -235,22 +238,21 @@ fiveFunction();
 //finish upload file sinh vien co du dieu kien dang ki khoa luan
 
 
-
 var SevenFunction = function () {
 
-    app.post('/users/profile/uploadhosobaove', function(req, res){
+    app.post('/users/profile/uploadhosobaove', function (req, res) {
 
         console.log(req.user.id);
         var eightFunction = function () {
-            var con= require('./utils/sqlhelper');
+            var con = require('./utils/sqlhelper');
 
-            con.query('UPDATE detai SET nopHoSoChua=? WHERE nguoiHoc_MSSV= "'+req.user.id+'"',1,function (err, result) {
+            con.query('UPDATE detai SET nopHoSoChua=? WHERE nguoiHoc_MSSV= "' + req.user.id + '"', 1, function (err, result) {
                 if (err) throw err;
                 console.log('okkk!');
             })
         }
 
-        setTimeout(eightFunction,5000);
+        setTimeout(eightFunction, 5000);
         // create an incoming form object
         var form = new formidable.IncomingForm();
 
@@ -262,17 +264,17 @@ var SevenFunction = function () {
 
         // every time a file has been uploaded successfully,
         // rename it to it's orignal name
-        form.on('file', function(field, file) {
+        form.on('file', function (field, file) {
             fs.rename(file.path, path.join(form.uploadDir, file.name));
         });
 
         // log any errors that occur
-        form.on('error', function(err) {
+        form.on('error', function (err) {
             console.log('An error has occured: \n' + err);
         });
 
         // once all the files have been uploaded, send a response to the client
-        form.on('end', function() {
+        form.on('end', function () {
             res.end('success');
         });
 
@@ -289,30 +291,30 @@ SevenFunction();
 
 var NineFunction = function () {
 
-    app.post('/users/sinhvien/uploadquyen', function(req, res){
+    app.post('/users/sinhvien/uploadquyen', function (req, res) {
 
         console.log(req.user.id);
         var TenFunction = function () {
-            var con= require('./utils/sqlhelper');
-            con.query('SELECT * FROM detai WHERE nguoiHoc_MSSV="'+req.user.id+'" AND duocBaoVeKhong=1',function (err,kq) {
+            var con = require('./utils/sqlhelper');
+            con.query('SELECT * FROM detai WHERE nguoiHoc_MSSV="' + req.user.id + '" AND duocBaoVeKhong=1', function (err, kq) {
                 // body...
                 if (err) {
                     throw err;
-                } else if (kq[0]==null) {
+                } else if (kq[0] == null) {
                     console.log('ban chua duoc phep nop de tai');
-                } else{
+                } else {
                     console.log('okkkk do');
-                    con.query('UPDATE detai SET document=? WHERE nguoiHoc_MSSV= "'+req.user.id+'"',1,function (err, result) {
-                    if (err) throw err;
-                    console.log('okkk!');
-             })
+                    con.query('UPDATE detai SET document=? WHERE nguoiHoc_MSSV= "' + req.user.id + '"', 1, function (err, result) {
+                        if (err) throw err;
+                        console.log('okkk!');
+                    })
                 }
 
             })
-             
+
         }
 
-        setTimeout(TenFunction,5000);
+        setTimeout(TenFunction, 5000);
         // create an incoming form object
         var form = new formidable.IncomingForm();
 
@@ -324,17 +326,17 @@ var NineFunction = function () {
 
         // every time a file has been uploaded successfully,
         // rename it to it's orignal name
-        form.on('file', function(field, file) {
+        form.on('file', function (field, file) {
             fs.rename(file.path, path.join(form.uploadDir, file.name));
         });
 
         // log any errors that occur
-        form.on('error', function(err) {
+        form.on('error', function (err) {
             console.log('An error has occured: \n' + err);
         });
 
         // once all the files have been uploaded, send a response to the client
-        form.on('end', function() {
+        form.on('end', function () {
             res.end('success');
         });
 
@@ -362,4 +364,6 @@ require('./routes/giangvien/linhvuc.js')(app);
 require('./routes/giangvien/nghiencuu.js')(app);
 require('./routes/admin/svguidetaibaove.js')(app);
 require('./routes/admin/phancongpbien.js')(app);
-require('./routes/admin/nhacnho.js')(app);
+require('./routes/admin/hoidong.js')(app);
+
+//require('./routes/admin/nhacnho.js')(app);

@@ -32,6 +32,7 @@ module.exports = function (app) {
 
                 con.query('INSERT INTO detai SET ?', post, function (err, kq) {
                     if (err) {
+                        console.log(err.message);
                         res.send('ban nhap sai thong tin, yeu cau nhap lai');
                     } else {
                         console.log('insert ok');

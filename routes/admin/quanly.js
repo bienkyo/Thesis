@@ -3,10 +3,11 @@ var orm     = require('orm');
 var User= require('../users');
 var con= require('../../utils/sqlhelper');
 var mailer = require('../../utils/mail-chuanophosobaove');
+var user = require('../../utils/user-roles');
 module.exports = function (app) {
 
 
-    app.get('/users/admin/quanly',function (req, res) {
+    app.get('/users/admin/quanly',user.is('admin'),function (req, res) {
         con.query('SELECT * FROM detai WHERE nopQuyenChua=1 AND nopHoSoChua=1',function (err, result) {
             if (err) throw err;
             console.log(result);
