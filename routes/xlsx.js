@@ -57,14 +57,11 @@ module.exports = function (app) {
                             console.log('insert database error');
                         }else {
                             console.log('insert thanh cong '+post.vnuMail);
-                        }
 
-                    });
-
-                    db.load('../models/giangvien',function (err) {
-                        var Giang_Vien = db.models.giangvien;
-                        Giang_Vien.create({ID:post.id,matKhau:mk,soDienThoai:post.soDienThoai,khoa_khKhoa:post.khoa_khKhoa,
-                        chuyenNganh:post.chuyenNganh,hocHam:post.hocHam,khBomon:post.khBomon},function (err,kq) {
+                            db.load('../models/giangvien',function (err) {
+                            var Giang_Vien = db.models.giangvien;
+                            Giang_Vien.create({ID:post.id,matKhau:mk,soDienThoai:post.soDienThoai,khoa_khKhoa:post.khoa_khKhoa,
+                            chuyenNganh:post.chuyenNganh,hocHam:post.hocHam,khBomon:post.khBomon},function (err,kq) {
                             if(err){
                                 console.log('insert giang vien that bai');
                             } else {
@@ -72,6 +69,11 @@ module.exports = function (app) {
                             }
                         })
                     })
+                        }
+
+                    });
+
+                    
                     mailer.mailTo(post,function(error, info) {
                         if (error) {
                             return console.error(error);

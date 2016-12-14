@@ -44,7 +44,7 @@ module.exports = function (app) {
         //         console.log('insert sucsseccfull')
         //     }
         // })
-        orm.connect('mysql://root@localhost/mydb',function (err, db) {
+        orm.connect('mysql://root:yahoo24@localhost/mydb',function (err, db) {
             if (err) throw err;
             db.load('../../models/user',function (err) {
                 var User= db.models.user;
@@ -57,21 +57,39 @@ module.exports = function (app) {
                             console.log('insert database error');
                         }else {
                             console.log('insert thanh cong '+post.vnuMail);
+                            var post1={
+                                ID:post.id,
+                                matKhau:mk,
+                                soDienThoai:post.soDienThoai,
+                                khoa_khKhoa:post.khoa_khKhoa,
+                                chuyenNganh:post.chuyenNganh,
+                                hocHam:post.hocHam,
+                                khBomon:post.khBomon
+                            }
+
+                            con.query('INSERT INTO giangvien SET?',post1,function (err,kq) {
+                                // body...
+                                if (err) {
+                                    console.log('insert giang vien that bai ' + err.message);
+                                } else{
+                                    console.log('insert giang vien thanh cong');
+                                }
+                            })
                         }
 
                     });
 
-                    db.load('../../models/giangvien',function (err) {
-                        var Giang_Vien = db.models.giangvien;
-                        Giang_Vien.create({ID:post.id,matKhau:mk,soDienThoai:post.soDienThoai,khoa_khKhoa:post.khoa_khKhoa,
-                        chuyenNganh:post.chuyenNganh,hocHam:post.hocHam,khBomon:post.khBomon},function (err,kq) {
-                            if(err){
-                                console.log('insert giang vien that bai');
-                            } else {
-                                console.log('Insert Giang vien Thanh cong ');
-                            }
-                        })
-                    })
+                    // db.load('../../models/giangvien',function (err) {
+                    //     var Giang_Vien = db.models.giangvien;
+                    //     Giang_Vien.create({ID:post.id,matKhau:mk,soDienThoai:post.soDienThoai,khoa_khKhoa:post.khoa_khKhoa,
+                    //     chuyenNganh:post.chuyenNganh,hocHam:post.hocHam,khBomon:post.khBomon},function (err,kq) {
+                    //         if(err){
+                    //             console.log('insert giang vien that bai');
+                    //         } else {
+                    //             console.log('Insert Giang vien Thanh cong ');
+                    //         }
+                    //     })
+                    // })
                     mailer.mailTo(post,function(error, info) {
                         if (error) {
                             return console.error(error);

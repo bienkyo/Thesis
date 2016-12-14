@@ -67,6 +67,21 @@
     border: none;
 }
 
+.upload-btn4 {
+    color: #ffffff;
+    background-color: #F89406;
+    border: none;
+}
+
+.upload-btn4:hover,
+.upload-btn4:focus,
+.upload-btn4:active,
+.upload-btn4.active {
+    color: #ffffff;
+    background-color: #FA8900;
+    border: none;
+}
+
 h4 {
     padding-bottom: 30px;
     color: #B8BDC1;
@@ -99,6 +114,9 @@ h2 {
     display: none;
 }
 #upload-input3 {
+    display: none;
+}
+#upload-input4 {
     display: none;
 }
 @media (min-width: 768px) {

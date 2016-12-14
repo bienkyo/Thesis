@@ -11,14 +11,19 @@
     <!-- END META -->
 
     <!-- BEGIN STYLESHEETS -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css'/>
-    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/bootstrap.css?1422792965" />
-    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/materialadmin.css?1425466319" />
-    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/font-awesome.min.css?1422529194" />
-    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/material-design-iconic-font.min.css?1421434286" />
-    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/libs/DataTables/jquery.dataTables.css?1423553989" />
-    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.colVis.css?1423553990" />
-    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.tableTools.css?1423553990" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet'
+          type='text/css'/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/bootstrap.css?1422792965"/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/materialadmin.css?1425466319"/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/font-awesome.min.css?1422529194"/>
+    <link type="text/css" rel="stylesheet"
+          href="/assets/css/theme-default/material-design-iconic-font.min.css?1421434286"/>
+    <link type="text/css" rel="stylesheet"
+          href="/assets/css/theme-default/libs/DataTables/jquery.dataTables.css?1423553989"/>
+    <link type="text/css" rel="stylesheet"
+          href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.colVis.css?1423553990"/>
+    <link type="text/css" rel="stylesheet"
+          href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.tableTools.css?1423553990"/>
     <link href="/stylesheets/upload.css" rel="stylesheet">
     <!-- END STYLESHEETS -->
 
@@ -41,9 +46,12 @@
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
-                                <img class="img-circle border-white border-xl img-responsive profile-avatar col-centered"  alt=""
-                                src="/images/UET.jpg">
-                                <h3>UET<br><small>Computer Sicence</small></h3>
+                                <img class="img-circle border-white border-xl img-responsive profile-avatar col-centered"
+                                     alt=""
+                                     src="/images/UET.jpg">
+                                <h3>UET<br>
+                                    <small>Computer Sicence</small>
+                                </h3>
 
                             </div>
                         </div>
@@ -56,6 +64,7 @@
                                     <li><a href="#tab-edit">EDIT</a></li>
                                     <li><a href="#tab-request">Các yêu cầu đang chờ duyệt</a></li>
                                     <li><a href="#tab-phancongpbien">Phan cong phan bien de tai</a></li>
+                                    <li><a href="#tab-nhacnho">Kiem tra ho so</a></li>
                                 </ul>
                             </div>
                             <div class="card-body tab-content">
@@ -71,19 +80,19 @@
                                                 </tr>
                                                 <tr>
                                                     <th>Tên đăng nhập dưới quyền admin:</th>
-                                                    <td><%= row.tenNguoiDung%></td>
+                                                    <td><%= row.tenNguoiDung %></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Dia chi mail:</th>
-                                                    <td><%=row.vnuMail%></td>
+                                                    <td><%= row.vnuMail %></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Mat Khau:</th>
-                                                    <td><%=row.matKhau%></td>
+                                                    <td><%= row.matKhau %></td>
                                                 </tr>
                                                 <tr>
                                                     <th>So dien Thoai lien lac:</th>
-                                                    <td><%=0972342502%></td>
+                                                    <td><%= 0972342502 %></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Đơn vị:</th>
@@ -122,24 +131,29 @@
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">Chuyên ngành</label>
                                             <div class="col-sm-10">
-                                                <input type="chuyennganh" class="form-control" id="chuyennganh"><div class="form-control-line"></div>
+                                                <input type="chuyennganh" class="form-control" id="chuyennganh">
+                                                <div class="form-control-line"></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">Email</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email"><div class="form-control-line"></div>
+                                                <input type="email" class="form-control" id="email">
+                                                <div class="form-control-line"></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="password" class="col-sm-2 control-label">Password</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="password"><div class="form-control-line"></div>
+                                                <input type="password" class="form-control" id="password">
+                                                <div class="form-control-line"></div>
                                             </div>
                                         </div>
                                         <div class="card-actionbar">
                                             <div class="card-actionbar-row">
-                                                <button type="submit" class="btn btn-flat btn-primary ink-reaction">Save</button>
+                                                <button type="submit" class="btn btn-flat btn-primary ink-reaction">
+                                                    Save
+                                                </button>
                                             </div>
                                         </div>
                                     </form>
@@ -147,23 +161,33 @@
                                     </div>  <!-- endtab -->
                                 </div> <!--endcard-->
 
+                                <!-- kiem tra ho so -->
+
+
                                 <div class="tab-pane" id="tab-request">
                                     <table id="table-request" class="table table-striped table-hover">
                                         <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Tên đề tài</th>
-                                                <th>Mã sinh viên</th>
-                                                <th>Mã giang viên</th>
-                                                <th>Yêu cầu</th>
-                                                <th>Thao tác</th>
-                                            </tr>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Tên đề tài</th>
+                                            <th>Mã sinh viên</th>
+                                            <th>Mã giang viên</th>
+                                            <th>Yêu cầu</th>
+                                            <th>Thao tác</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
 
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <div class="tab-pane" id="tab-nhacnho">
+                                    <p>Kiem tra nhung hoc vien chua hoan tat ho so va nhac nho</p>
+                                    <p><a href="/users/admin/nhacnho">kiem tra</a></p>
+                                    <div> <!-- end tab edit -->
+                                    </div>  <!-- endtab -->
+                                </div> <!--endcard--
 
                                 <div class="tab-pane" id="tab-phancongpbien">
                                     <table id="table-phancongpbien" class="table table-striped table-hover">
@@ -177,15 +201,15 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <%detais.forEach(function (detai) { %>
+                                            <% detais.forEach(function (detai) { %>
                                                 <tr>
-                                                    <td><%=detai.ID%></td>
-                                                    <td><%=detai.tenDeTai%></td>
-                                                    <td><%=detai.nguoiHoc_MSSV%></td>
+                                                    <td><%= detai.ID %></td>
+                                                    <td><%= detai.tenDeTai %></td>
+                                                    <td><%= detai.nguoiHoc_MSSV %></td>
                                                     <td><button id="btn-phancong" type="button" class="btn btn-icon-toggle accept" data-toggle="tooltip" data-placement="top" data-original-title="Chấp nhận"><i class="fa fa-check"></i></button></td>
                                                     <td><button id="btn-exports" type="button" class="btn btn-icon-toggle export" data-toggle="tooltip" data-placement="top" data-original-title="Xuất đề nghị"><i class="fa fa-file-word-o"></i></button></td>
                                                 </tr>
-                                            <% })%>
+                                            <% }) %>
                                         </tbody>
                                     </table>
                                 </div>
@@ -195,8 +219,15 @@
                     </div>
         </section>
     </div><!--end #content-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
     <!-- END CONTENT -->
-    <%- include('../menubar'); %>
+    <%- include('menubar'); %>
 </div><!--end #base-->
 <!-- END BASE -->
 
@@ -217,5 +248,10 @@
 <!-- <script src="/assets/js/core/source/AppNavigation.js"></script> -->
 
 
+</div>
+</div>
+</div>
+
+</div>
 </body>
 </html>

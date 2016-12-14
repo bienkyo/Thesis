@@ -68,12 +68,12 @@
                                 <tbody>
                                 <%rows.forEach(function (row) { %>
                                 <tr>
-                                    <td ><%=row.giangVien_ID%></td>
+                                    <td ><%=row.giangVien_id%></td>
                                     <td><%=row.chuDe_tenChuDe%></td>
                                     <td><%=row.moTa%></td>
                                     <td>
                                         <form action="/users/chudenc/giangvien" method="post">
-                                            <input type="hidden" name="idGv" value="<%= row.giangVien_ID%>">
+                                            <input type="hidden" name="idGv" value="<%= row.giangVien_id%>">
                                             <button type="submit" class="btn btn-flat">thong tin giang vien</button>
                                         </form>
                                     </td>

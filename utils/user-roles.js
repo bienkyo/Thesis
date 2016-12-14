@@ -5,11 +5,9 @@ var user = new ConnectRoles({
         // user fails authorisation
         var accept = req.headers.accept || '';
         res.status(403);
-        if (~accept.indexOf('html')) {
-            res.render('access-denied', {action: action});
-        } else {
-            res.send('Access Denied - You don\'t have permission to: ' + action);
-        }
+
+        res.send('Access Denied - You don\'t have permission to: ' + action);
+
     }
 });
 
@@ -25,15 +23,14 @@ user.use(function (req, action) {
 //they might not be the only ones so we don't return
 //false if the user isn't a moderator
 
-user.use('g')
 
 user.use('giangvien', function (req) {
     if (req.user.quyen === 'giang_vien') {
         return true;
     }
 })
-user.use('sinhvien',function (req) {
-    if(req.user.quyen == null){
+user.use('sinhvien', function (req) {
+    if (req.user.quyen == null) {
         return true;
     }
 })
@@ -45,4 +42,4 @@ user.use(function (req) {
     }
 });
 
-modules.export = user;
+module.exports = user;

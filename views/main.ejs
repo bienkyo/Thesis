@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Material Admin - Dashboard</title>
+
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your,keywords">
+    <meta name="description" content="Short explanation about this website">
+    <!-- END META -->
+
+    <!-- BEGIN STYLESHEETS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css'/>
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/bootstrap.css?1422792965" />
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/materialadmin.css?1425466319" />
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/font-awesome.min.css?1422529194" />
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/material-design-iconic-font.min.css?1421434286" />
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/libs/rickshaw/rickshaw.css?1422792967" />
+    <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/libs/morris/morris.core.css?1420463396" />
+    <!-- END STYLESHEETS -->
+    <style>
+        .navbar {
+            min-height: 64px;
+            border-bottom: 1px #e5e6e6;
+        }
+        .collapse {
+            min-height: 64px;
+        }
+        .navbar-nav > li > a {  
+            padding: 20px;
+            font-size: 15px;
+            color: rgba(0, 0, 0, 0.33);
+        }
+        .navbar-right {
+            padding-right: 4%;
+        }
+        .left {
+            float:left;
+        }
+        .right{
+            float: right;
+        }
+        h3, h4 {
+            margin: 10px 0 30px 0;      
+            font-size: 25px;
+            color: #111;
+        }
+        .text-center {
+            padding-top: 5px;
+            font-size: 15px;
+        }
+
+    </style>
+  </head>
+
+  <body class="menubar-hoverable header-fixed"  style="background: white;">
+        <%- include('header') %>
+        <div id="base">
+            <!-- BEGIN CONTENT-->
+            <div id="content">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="1"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                        <img src="../../images/dhcn.jpg" alt="New York" width="1440" height="400">     
+                      </div>
+
+                      <div class="item">
+                        <img src="../../images/dhcn1.jpg" alt="Chicago" width="1800" height="400">    
+                      </div>
+                    
+                      <div class="item">
+                        <img src="../../images/1b.jpg" alt="Los Angeles" width="1800" height="400">     
+                      </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <br>
+
+                <div id="band" class="container text-center" style="padding-top: 15px; padding-bottom: 100px; border-bottom: 1px solid; ">
+                  <h3>TRƯỜNG ĐẠI HỌC CÔNG NGHỆ</h3>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <p class="text-center"><strong>Sứ mệnh</strong></p><br>
+                      <p>Là tổ chức trực thuộc Viện Ứng dụng Công nghệ, Bộ Khoa học và Công nghệ có chức năng cung cấp dịch vụ tư vấn, hỗ trợ tổ chức, cá nhân trong nghiên cứu khoa học và phát triển công nghệ; hoàn thiện, ứng dụng, thương mại hóa công nghệ; xây dựng mô hình kinh doanh, huy động vốn đầu tư và các hoạt động khác.</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-center"><strong>Vị trí</strong></p><br>
+                      <p>Là tổ chức trực thuộc Viện Ứng dụng Công nghệ, Bộ Khoa học và Công nghệ có chức năng cung cấp dịch vụ tư vấn, hỗ trợ tổ chức, cá nhân trong nghiên cứu khoa học và phát triển công nghệ; hoàn thiện, ứng dụng, thương mại hóa công nghệ; xây dựng mô hình kinh doanh, huy động vốn đầu tư và các hoạt động khác.</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-center"><strong>Tầm nhìn</strong></p><br>
+                      <p>Là tổ chức trực thuộc Viện Ứng dụng Công nghệ, Bộ Khoa học và Công nghệ có chức năng cung cấp dịch vụ tư vấn, hỗ trợ tổ chức, cá nhân trong nghiên cứu khoa học và phát triển công nghệ; hoàn thiện, ứng dụng, thương mại hóa công nghệ; xây dựng mô hình kinh doanh, huy động vốn đầu tư và các hoạt động khác.</p>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div id="band" class="container " style="padding-top: 15px;">
+                  <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card-body style-primary height-1 text-center" style="background: #e5e5e5">Tin tức</div>
+                        <div class="card-body ">
+                            <ul class="list divider-full-bleed">
+                                <li class="tile">
+                                    <div class="tile-content">
+                                        <div class="tile-text">Công ty Appota: Thông tin tuyển dụng</div>
+                                    </div>
+                                </li>
+                                <li class="tile">
+                                    <div class="tile-content">
+                                        <div class="tile-text">Cựu sinh viên Khoa Công nghệ Thông tin – Trường Đại học Công nghệ, ĐHQGHN được vinh danh tại Nhân tài Đất Việt 2016</div>
+                                    </div>
+                                </li>
+                                <li class="tile">
+                                    <div class="tile-content">
+                                        <div class="tile-text">Công ty Appota: Thông tin tuyển dụng</div>
+                                    </div>
+                                </li>
+                                <li class="tile">
+                                    <div class="tile-content">
+                                        <div class="tile-text">Cựu sinh viên Khoa Công nghệ Thông tin – Trường Đại học Công nghệ, ĐHQGHN được vinh danh tại Nhân tài Đất Việt 2016</div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div><!--end .card-body -->
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card-body style-primary height-1 text-center" style="background: #e5e5e5">Bộ môn</div>
+                        <div class="card-body small-padding ">
+                            <ul class="list divider-full-bleed">
+                                <li class="tile">
+                                    <div class="tile-content">
+                                        <div class="tile-text">Các hệ thông thông tin</div>
+                                    </div>
+                                </li>
+                                <li class="tile">
+                                    <div class="tile-content">
+                                        
+                                        <div class="tile-text">Công nghệ phần mềm</div>
+                                    </div>
+                                </li>
+                                <li class="tile">
+                                    <div class="tile-content">
+                                        
+                                        <div class="tile-text">Khoa học Máy tính</div>
+                                    </div>
+                                </li>
+                                <li class="tile">
+                                    <div class="tile-content">
+                                        
+                                        <div class="tile-text">Khoa học và Kỹ thuật tính toán</div>
+                                    </div>
+                                </li>
+                                <li class="tile">
+                                    <div class="tile-content">
+                                        
+                                        <div class="tile-text">Mạng và truyền thông Máy tính</div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                   <div class="col-sm-4">
+                        <div class="card-body style-primary height-1 text-center" style="background: #e5e5e5">Sự kiện</div>
+                        <div class="card-body small-padding ">Là tổ chức trực thuộc Viện Ứng dụng Công nghệ, Bộ Khoa học và Công nghệ có chức năng cung cấp dịch vụ tư vấn, hỗ trợ tổ chức, cá nhân trong nghiên cứu khoa học và phát triển công nghệ; hoàn thiện, ứng dụng, thương mại hóa công nghệ; xây dựng mô hình kinh doanh, huy động vốn đầu tư và các hoạt động khác.</div>
+                    </div>
+                  </div>
+                </div>
+                <footer id="footerarea" class="clearfix">
+    
+                    <div id="site-generator">
+                        <div class="container">
+                        <div class="footer-right" style="color: white; padding-top: 25px;">Khoa Công Nghệ Thông Tin - Trường Đại học Công Nghệ - ĐHQGHN </div><div style="clear:both;"></div>
+            </div><!-- .container -->
+            </div><!-- #site-generator --><div class="back-to-top" style="display: none;"><a href="#branding"></a></div></footer>
+            
+            </div>
+            <%- include('menubar'); %>
+        </div>
+  <!-- END BASE -->
+<!-- BEGIN JAVASCRIPT -->
+    <script src="../../assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+    <script src="../../assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../../assets/js/libs/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/libs/spin.js/spin.min.js"></script>
+    <script src="../../assets/js/libs/autosize/jquery.autosize.min.js"></script>
+    <script src="../../assets/js/libs/moment/moment.min.js"></script>
+    <script src="../../assets/js/libs/flot/jquery.flot.min.js"></script>
+    <script src="../../assets/js/libs/flot/jquery.flot.time.min.js"></script>
+    <script src="../../assets/js/libs/flot/jquery.flot.resize.min.js"></script>
+    <script src="../../assets/js/libs/flot/jquery.flot.orderBars.js"></script>
+    <script src="../../assets/js/libs/flot/jquery.flot.pie.js"></script>
+    <script src="../../assets/js/libs/flot/curvedLines.js"></script>
+    <script src="../../assets/js/libs/jquery-knob/jquery.knob.min.js"></script>
+    <script src="../../assets/js/libs/sparkline/jquery.sparkline.min.js"></script>
+    <script src="../../assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
+    <script src="../../assets/js/libs/d3/d3.min.js"></script>
+    <script src="../../assets/js/libs/d3/d3.v3.js"></script>
+    <script src="../../assets/js/libs/rickshaw/rickshaw.min.js"></script>
+    <script src="../../assets/js/core/source/App.js"></script>
+    <script src="../../assets/js/core/source/AppNavigation.js"></script>
+    <script src="../../assets/js/core/source/AppOffcanvas.js"></script>
+    <script src="../../assets/js/core/source/AppCard.js"></script>
+    <script src="../../assets/js/core/source/AppForm.js"></script>
+    <script src="../../assets/js/core/source/AppNavSearch.js"></script>
+    <script src="../../assets/js/core/source/AppVendor.js"></script>
+    <!-- END JAVASCRIPT -->
+
+  </body>
+</html>

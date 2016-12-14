@@ -1,7 +1,8 @@
 var ORMConnector = require('../../utils/orm-connector');
 var con = require('../../utils/sqlhelper');
+var user = require('../../utils/user-roles');
 module.exports = function (app) {
-    app.get('/users/admin/hoidong', function (req, res) {
+    app.get('/users/admin/hoidong',user.is('admin'), function (req, res) {
         con.query('SELECT * FROM chucvu', function (err, chucvu) {
             if (err) {
                 consol.log(err.message);
