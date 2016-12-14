@@ -54,10 +54,11 @@
                                 <ul class="nav nav-tabs" data-toggle="tabs">
                                     <li class="active"><a href="#tab-about">About</a></li>
                                     <li><a href="#tab-edit">EDIT</a></li>
+                                    <li><a href="#tab-request">Các yêu cầu đang chờ duyệt</a></li>
                                 </ul>
                             </div>
                             <div class="card-body tab-content">
-                                <div class="tab-pane" id="tab-about">
+                                <div class="tab-pane active" id="tab-about">
                                     <div class="about-area">
                                         <h4 class="text-default-light">Thông tin cá nhân</h4>
                                         <div class="table-responsive">
@@ -115,7 +116,7 @@
                                 </div><!--  tab-about -->
 
 
-                                <div class="tab-pane active" id="tab-edit">
+                                <div class="tab-pane" id="tab-edit">
                                     <form class="form-horizontal">
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">Chuyên ngành</label>
@@ -145,6 +146,24 @@
                                     </div>  <!-- endtab -->
                                 </div> <!--endcard-->
 
+                                <div class="tab-pan" id="tab-request">
+                                    <table id="table-request" class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Tên đề tài</th>
+                                                <th>Mã sinh viên</th>
+                                                <th>Mã giang viên</th>
+                                                <th>Yêu cầu</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -161,6 +180,11 @@
 <script src="/assets/js/libs/bootstrap/bootstrap.min.js"></script>
 <script src="/assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
 <script src="/javascripts/upload.js"></script>
+<script src="/assets/js/libs/DataTables/jquery.dataTables.min.js"></script>
+<script src="/assets/js/libs/toastr/toastr.js"></script>
+<script src="/assets/js/libs/DataTables/extensions/ColVis/js/dataTables.colVis.min.js"></script>
+<script src="/assets/js/libs/DataTables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+<script src="/javascripts/adquanlydetai.js"></script>
 <!-- Put App.js last in your javascript imports -->
 <script src="/assets/js/core/source/App.min.js"></script>
 <!-- <script src="/assets/js/core/source/AppNavigation.js"></script> -->
