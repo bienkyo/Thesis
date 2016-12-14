@@ -56,6 +56,7 @@
                                     <li><a href="#tab-edit">Add Giang Vien</a></li>
                                     <li><a href="#tab-edit1">Add Sinh Vien</a></li>
                                     <li><a href="#tab-edit2">Add Dang Ky De Tai</a></li>
+                                    <li><a href="#tab-edit3">Ho so bao ve</a></li>
                                 </ul>
                             </div>
                             <div class="card-body tab-content">
@@ -136,7 +137,7 @@
                                 </div><!--  tab-about -->
 
 
-                                <div class="tab-pane active" id="tab-edit1">
+                                <div class="tab-pane" id="tab-edit1">
                                     <form class="form-horizontal" action="/users/add_one_sinvien" method="post">
                                         <div class="form-group">
                                             <label for="mssv" class="col-sm-2 control-label">Ma Sinh Vien</label>
@@ -184,7 +185,7 @@
                                     </div>  <!-- endtab -->
                                 </div> <!--endcard-->
 
-                                <div class="tab-pane active" id="tab-edit">
+                                <div class="tab-pane" id="tab-edit">
                                     <form class="form-horizontal" action="/users/add_one_giangvien" method="post">
                                         <div class="form-group">
                                             <label for="chuyennganh" class="col-sm-2 control-label">Chuyên ngành</label>
@@ -246,7 +247,7 @@
                                 </div> <!--endcard-->
 
                                 <!--Add Dang ky de tai-->
-                                <div class="tab-pane active" id="tab-edit2">
+                                <div class="tab-pane" id="tab-edit2">
                                     <h4 align="center">Danh sach Sinh vien co the dang ky de tai</h4>
                                     <form class="form-inline" action="/users/add_one_giangvien" method="post">
                                         <div>
@@ -269,6 +270,62 @@
                                     </table>
                                 </div> <!--endcard-->
 
+
+                                <div class="tab-pane" id="tab-edit3">
+                                        <div class="card-head">
+                                            <header>Danh sach sinh vien nop ho so bao ve</header>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table no-margin">
+                                                    <thead>
+                                                    <th>Ma so Sinh vien</th>
+                                                    <th>De tai Dang ky</th>
+                                                    </thead>
+                                                    <tbody>
+                                                    <% Detai.forEach(function (detai) { %>
+                                                    <tr>
+                                                        <td><%= detai.nguoiHoc_MSSV %></td>
+                                                        <td><%= detai.tenDeTai %></td>
+                                                        <td>
+                                                            <button id="btn-chapnhan">Tiep Nhan</button>
+                                                        </td>
+                                                    </tr>
+                                                    <% }) %>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    <div class="card-head">
+                                        <header>Danh sach sinh vien duoc bao ve</header>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table no-margin">
+                                                <thead>
+                                                <th>Ma so Sinh vien</th>
+                                                <th>De tai Dang ky</th>
+                                                </thead>
+                                                <tbody>
+                                                <% ds.forEach(function (ds) { %>
+                                                <tr>
+                                                    <td><%= ds.nguoiHoc_MSSV %></td>
+                                                    <td><%= ds.tenDeTai %></td>
+                                                </tr>
+                                                <% }) %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+                                    <div> <!-- end tab edit -->
+                                        </div>  <!-- endtab -->
+                                    <div> <!-- end tab edit -->
+                                    </div>  <!-- endtab -->
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -288,6 +345,7 @@
 <script src="/javascripts/uploadsv.js"></script>
 <script src="/javascripts/uploaddkdetai.js"></script>
 <script src="/javascripts/addsvdkdetai.js"></script>
+<script src="/javascripts/khoatiepnhandetai.js"></script>
 <!-- Put App.js last in your javascript imports -->
 <script src="/assets/js/core/source/App.min.js"></script>
 <!-- <script src="/assets/js/core/source/AppNavigation.js"></script> -->

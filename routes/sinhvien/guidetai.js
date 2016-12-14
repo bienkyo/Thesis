@@ -29,11 +29,6 @@ module.exports = function (app) {
             })
 
         })
-
-
-
-
-
     });
     app.post('/users/sinhvien/huydetai',function (req,res) {
         var userId = req.user.id;

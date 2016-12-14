@@ -5,7 +5,7 @@ module.exports = function (app) {
     app.post('/users/giangvien/linhvuc', function (req, res) {
 
         console.log(JSON.stringify(req.body));
-        orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
+        orm.connect('mysql://root@localhost/mydb', function (err, db) {
             if (err) throw err;
             db.load('../../models/giangvien_linhvuc',function (err) {
                 if (err) throw err;

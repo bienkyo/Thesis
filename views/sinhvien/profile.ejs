@@ -10,6 +10,7 @@
     <meta name="description" content="Short explanation about this website">
     <!-- END META -->
 
+
     <!-- BEGIN STYLESHEETS -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet'
           type='text/css'/>
@@ -24,7 +25,10 @@
           href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.colVis.css?1423553990"/>
     <link type="text/css" rel="stylesheet"
           href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.tableTools.css?1423553990"/>
+
+    <link href="/stylesheets/upload.css" rel="stylesheet">
     <!-- END STYLESHEETS -->
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -49,7 +53,6 @@
                                 <h3 class="text-center"><%= user.tenNguoiDung %><br>
                                     <small>Computer Sicence</small>
                                 </h3>
-
                             </div>
                         </div>
                     </div>
@@ -60,6 +63,7 @@
                                     <li class="active"><a href="#tab-about">About</a></li>
                                     <li><a href="#tab-edit">Edit</a></li>
                                     <li><a href="#tab-edit1">Dang ky de tai</a></li>
+                                    <li><a href="#tab-edit2">Dang ky bao ve</a></li>
                                 </ul>
                             </div>
                             <div class="card-body tab-content">
@@ -119,25 +123,31 @@
                                     <form class="form" method="post" action="/users/sinhvien/dkdetai">
                                         <div class="card-body floating-label">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="Firstname1" name="msv">
+                                                <input type="text" class="form-control" id="Firstname1"
+                                                       name="msv">
                                                 <label for="Firstname1">Ma sinh vien</label>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="Firstname1" name="detai">
+                                                <input type="text" class="form-control" id="Firstname1"
+                                                       name="detai">
                                                 <label for="Firstname1">De tai nghien cuu</label>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="Firstname1" name="madetai">
+                                                <input type="text" class="form-control" id="Firstname1"
+                                                       name="madetai">
                                                 <label for="Firstname1">Ma de tai Nghien cuu</label>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="Firstname1" name="mail">
-                                                <label for="Firstname1">Giảng viên hỗ trợ (Mail giang vien)</label>
+                                                <input type="text" class="form-control" id="Firstname1"
+                                                       name="mail">
+                                                <label for="Firstname1">Giảng viên hỗ trợ (Mail giang
+                                                    vien)</label>
                                             </div>
                                         </div><!--end .card-body -->
                                         <div class="card-actionbar">
                                             <div class="card-actionbar-row">
-                                                <button type="submit" class="btn btn-flat btn-primary ink-reaction">Đăng
+                                                <button type="submit"
+                                                        class="btn btn-flat btn-primary ink-reaction">Đăng
                                                     kí
                                                 </button>
                                             </div>
@@ -147,10 +157,57 @@
                                     </div>  <!-- endtab -->
                                 </div> <!--endcard-->
 
+                                <!--dang ky bao ve-->
+
+                                <div class="tab-pane" id="tab-edit2">
+                                    <div class="col-xs-12">
+                                        <img class="pull-left width-3" src="/images/gv.gif" alt=""/>
+                                        <p>
+                                            <a class="text-medium text-lg text-primary" href="#">Dang Ky Bao
+                                                Ve</a><br/>
+                                            <a class="opacity-75" href="#">uet.vnu.edu.vn</a>
+                                        </p>
+                                        <div class="contain-xs pull-left">
+                                            Ban duoc dang ky bao ve neu ban da dang ky de tai va da duoc giang
+                                            vien chap nhan de tai cua ban.
+                                            Nop ho so bao ve o duoi
+                                        </div>
+                                    </div><!--end .col -->
+                                    </hr>
+                                    </hr>
+                                    <div class="about-area">
+                                        <h4>choose file</h4>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <span class="glyphicon glyphicon-cloud-upload"></span>
+                                                        <h2>File Uploader</h2>
+                                                        <h4>coligo.io</h4>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar"></div>
+                                                        </div>
+                                                        <button class="btn btn-lg upload-btn" type="button">
+                                                            Upload File
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input id="upload-input" type="file" name="uploads[]"
+                                               multiple="multiple"></br>
+                                    </div><!--  end-aboutarea -->
+
+                                    <div> <!-- end tab edit -->
+                                    </div>  <!-- endtab -->
+                                </div> <!--endcard-->
+
+
                                 <div class="tab-pane" id="tab-edit">
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <label for="email" class="col-sm-2 control-label">Chuyên ngành</label>
+                                            <label for="email" class="col-sm-2 control-label">Chuyên
+                                                ngành</label>
                                             <div class="col-sm-10">
                                                 <input type="chuyennganh" class="form-control" id="chuyennganh">
                                                 <div class="form-control-line"></div>
@@ -164,7 +221,8 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="password" class="col-sm-2 control-label">Password</label>
+                                            <label for="password"
+                                                   class="col-sm-2 control-label">Password</label>
                                             <div class="col-sm-10">
                                                 <input type="password" class="form-control" id="password">
                                                 <div class="form-control-line"></div>
@@ -172,18 +230,21 @@
                                         </div>
                                         <div class="card-actionbar">
                                             <div class="card-actionbar-row">
-                                                <button type="submit" class="btn btn-flat btn-primary ink-reaction">
-                                                    Save
+                                                <button type="submit"
+                                                        class="btn btn-flat btn-primary ink-reaction">Save
                                                 </button>
                                             </div>
                                         </div>
                                     </form>
                                     <div> <!-- end tab edit -->
+                                        >>>>>>> 0d0427f869d688241f629f9884bbbdf3509c2634
                                     </div>  <!-- endtab -->
                                 </div> <!--endcard-->
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
         </section>
     </div><!--end #content-->
     <!-- END CONTENT -->
@@ -196,7 +257,7 @@
 <script src="/assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
 <script src="/assets/js/libs/bootstrap/bootstrap.min.js"></script>
 <script src="/assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
-
+<script src="/javascripts/uploadhosobaove.js"></script>
 <!-- Put App.js last in your javascript imports -->
 <script src="/assets/js/core/source/App.min.js"></script>
 <!-- <script src="/assets/js/core/source/AppNavigation.js"></script> -->
