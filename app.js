@@ -285,6 +285,68 @@ var SevenFunction = function () {
 
 SevenFunction();
 
+// gui document de tai nghien cuu
+
+var NineFunction = function () {
+
+    app.post('/users/sinhvien/uploadquyen', function(req, res){
+
+        console.log(req.user.id);
+        var TenFunction = function () {
+            var con= require('./utils/sqlhelper');
+            con.query('SELECT * FROM detai WHERE nguoiHoc_MSSV="'+req.user.id+'" AND duocBaoVeKhong=1',function (err,kq) {
+                // body...
+                if (err) {
+                    throw err;
+                } else if (kq[0]==null) {
+                    console.log('ban chua duoc phep nop de tai');
+                } else{
+                    console.log('okkkk do');
+                    con.query('UPDATE detai SET document=? WHERE nguoiHoc_MSSV= "'+req.user.id+'"',1,function (err, result) {
+                    if (err) throw err;
+                    console.log('okkk!');
+             })
+                }
+
+            })
+             
+        }
+
+        setTimeout(TenFunction,5000);
+        // create an incoming form object
+        var form = new formidable.IncomingForm();
+
+        // specify that we want to allow the user to upload multiple files in a single request
+        form.multiples = true;
+
+        // store all uploads in the /uploads directory
+        form.uploadDir = path.join(__dirname, '/uploads');
+
+        // every time a file has been uploaded successfully,
+        // rename it to it's orignal name
+        form.on('file', function(field, file) {
+            fs.rename(file.path, path.join(form.uploadDir, file.name));
+        });
+
+        // log any errors that occur
+        form.on('error', function(err) {
+            console.log('An error has occured: \n' + err);
+        });
+
+        // once all the files have been uploaded, send a response to the client
+        form.on('end', function() {
+            res.end('success');
+        });
+
+        // parse the incoming request containing the form data
+        form.parse(req);
+        //console.log(req.file);
+        //require('./routes/xlsx.js')(app);
+    });
+}
+
+NineFunction();
+
 require('./routes/admin/add_giangvien.js')(app);
 require('./routes/admin/quanly.js')(app);
 require('./routes/admin/detai.js')(app);
@@ -300,4 +362,4 @@ require('./routes/giangvien/linhvuc.js')(app);
 require('./routes/giangvien/nghiencuu.js')(app);
 require('./routes/admin/svguidetaibaove.js')(app);
 require('./routes/admin/phancongpbien.js')(app);
-
+require('./routes/admin/nhacnho.js')(app);

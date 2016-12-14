@@ -59,6 +59,7 @@ module.exports = function (app) {
                             console.log('insert database error');
                         }else {
                             console.log('insert user sv thanh cong '+post.vnuMail);
+                            
                         }
 
                     });
