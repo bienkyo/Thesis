@@ -76,9 +76,16 @@ router.get('/profile', function (req, res) {
             var id;
             module.exports.id = user.id;
             console.log('ban la admin');
-            res.render('admin/admin', {
-                "row": user
+
+            con.query('SELECT * FROM detai WHERE duocBaoVeKhong=1',function (err, result) {
+                if(err) throw err;
+                console.log(result);
+                res.render('admin/admin', {
+                    "row": user,
+                    "detais": result
+                })
             })
+
         }
         else if (user.quyen == 'giang_vien') {
             console.log('ban la giang vien');

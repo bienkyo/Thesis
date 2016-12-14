@@ -34,6 +34,9 @@ module.exports = function (app) {
                 console.log('delete ok');
             })
     });
+
+
+
     app.get('/users/admin/detaichoduyet', function (req, res) {
 
         ORMConnector(function (err, db) {
