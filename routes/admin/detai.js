@@ -43,7 +43,7 @@ module.exports = function (app) {
             db.load('../../models/detai', function (err) {
                 if (err) throw err;
                 var Detai = db.models.detai;
-                Detai.find({'choDuocDuyet': orm.gt(0)}).each(function (dt) {
+                Detai.find({'choDuocDuyet': orm.gt(0),'nopQuyenChua': orm.ne(0)}).each(function (dt) {
                     dt.yeuCau = dt.choDuocDuyet == 1 ? 'Rút đề tài' : 'Sửa đề tài';
                 }).get(function (detai) {
                     if (err) {

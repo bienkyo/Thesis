@@ -116,17 +116,48 @@
                                                 </tbody>
                                             </table>
                                         </div>
+
                                     </div><!--  end-aboutarea -->
+                                    <% if(detai){ %>
+                                    <div class="about-area">
+                                        <h4 class="text-default-light">Đề tài đã dăng ký</h4>
+                                        <dl class="table-responsive">
+                                            <table class="table about-table">
+                                                <tbody>
+                                                <tr>
+                                                    <th>Mã đề tài</th>
+                                                    <td><%= detai.ID %></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tên đề tài</th>
+                                                    <td><%= detai.tenDeTai %></td>
+                                                </tr>
+                                                <th>GV hướng dẫn</th>
+                                                <td><%= detai.giangVien_ID %></td>
+                                                </tbody>
+                                            </table>
+                                        </dl>
+                                    </div>
+                                    <% } %>
                                 </div><!--  tab-about -->
 
                                 <div class="tab-pane" id="tab-edit1">
+                                    <% if(detai){ %>
+                                    <% if(detai.choDuocDuyet == 1){ %>
+                                    <div class="alert alert-callout alert-warning" role="alert">
+                                        Bạn đã xin hủy đề tài, Yêu cầu của bạn đã được gửi đến khoa
+                                    </div>
+                                    <% }else if(detai.choDuocDuyet == 2){ %>
+                                    <div class="alert alert-callout alert-warning" role="alert">
+                                        Bạn đã xin sửa đề tài, Yêu cầu của bạn đã được gửi đến khoa
+                                    </div>
+                                    <% } %>
+                                    <button type="button" id="huy-detai" class="btn btn-default-bright btn-block">Huỷ đề
+                                        tài
+                                    </button>
+                                    <% } %>
                                     <form class="form" method="post" action="/users/sinhvien/dkdetai">
                                         <div class="card-body floating-label">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="Firstname1"
-                                                       name="msv">
-                                                <label for="Firstname1">Ma sinh vien</label>
-                                            </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="Firstname1"
                                                        name="detai">
@@ -258,6 +289,7 @@
 <script src="/assets/js/libs/bootstrap/bootstrap.min.js"></script>
 <script src="/assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
 <script src="/javascripts/uploadhosobaove.js"></script>
+<script src="/javascripts/svquanlydetai.js"></script>
 <!-- Put App.js last in your javascript imports -->
 <script src="/assets/js/core/source/App.min.js"></script>
 <!-- <script src="/assets/js/core/source/AppNavigation.js"></script> -->
