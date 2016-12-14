@@ -300,4 +300,5 @@ require('./routes/giangvien/linhvuc.js')(app);
 require('./routes/giangvien/nghiencuu.js')(app);
 require('./routes/admin/svguidetaibaove.js')(app);
 require('./routes/admin/phancongpbien.js')(app);
+require('./routes/admin/hoidong.js')(app);
 

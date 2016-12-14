@@ -95,7 +95,7 @@ module.exports = function (app) {
 
     app.delete('/users/giangvien/nghiencuu/:id', function (req, res) {
         console.log('Remove userId=' + req.user.id + " chude=" + req.params.id);
-        orm.connect('mysql://root@localhost/mydb', function (err, db) {
+        orm.connect('mysql://root:yahhoo24@localhost/mydb', function (err, db) {
                 if (err) {
                     throw  err;
                 }

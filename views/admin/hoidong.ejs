@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Material Admin - Dynamic tables</title>
+
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your,keywords">
+    <meta name="description" content="Short explanation about this website">
+    <!-- END META -->
+
+    <!-- BEGIN STYLESHEETS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet'
+          type='text/css'/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/bootstrap.css?1422792965"/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/materialadmin.css?1425466319"/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/theme-default/font-awesome.min.css?1422529194"/>
+    <link type="text/css" rel="stylesheet"
+          href="/assets/css/theme-default/material-design-iconic-font.min.css?1421434286"/>
+    <link type="text/css" rel="stylesheet"
+          href="/assets/css/theme-default/libs/DataTables/jquery.dataTables.css?1423553989"/>
+    <link type="text/css" rel="stylesheet"
+          href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.colVis.css?1423553990"/>
+    <link type="text/css" rel="stylesheet"
+          href="/assets/css/theme-default/libs/DataTables/extensions/dataTables.tableTools.css?1423553990"/>
+    <link href="/stylesheets/upload.css" rel="stylesheet">
+    <!-- END STYLESHEETS -->
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/assets/js/libs/utils/html5shiv.js?1403934957"></script>
+    <script type="text/javascript" src="/assets/js/libs/utils/respond.min.js?1403934956"></script>
+    <![endif]-->
+</head>
+<body class="menubar-hoverable header-fixed ">
+<%- include('header') %>
+<!-- BEGIN BASE-->
+<div id="base">
+    <!-- BEGIN CONTENT-->
+    <div id="content">
+        <section class="style-default-bright">
+            <div class="section-header">
+                <h2 class="text-primary">Hội đồng bảo vệ</h2>
+            </div>
+            <div class="section-body">
+                <!-- BEGIN DATATABLE 1 -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+
+                            <table id="table-hoidong" class="table table-striped table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Mã giảng viên</th>
+                                    <th>Giảng viên</th>
+                                    <th>Chức vụ</th>
+                                    <th>Ghi chú</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div><!--end .table-responsive -->
+                    </div><!--end .col -->
+                </div><!--end .row -->
+                <!-- END DATATABLE 1 -->
+                <div class="row">
+                    <form class="form" action="/users/admin/hoidong.json" accept-charset="utf-8" method="post" id="form-hoidong">
+                        <div class="floating-label">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select id="giangvien" name="giangvienId" class="form-control dirty" required>
+                                        <option value="">&nbsp;</option>
+                                        <% giangvien.forEach(function(lv){ %>
+                                        <option value="<%= lv.id %>"><%= lv.tenNguoiDung %></option>
+                                        <% }); %>
+                                    </select>
+
+                                    <label for="giangvien">Giảng viên</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <select id="chucvu" name="chucvuId" class="form-control dirty">
+                                        <option value="">&nbsp;</option>
+                                        <% chucvu.forEach(function(lv){ %>
+                                        <option value="<%= lv.id %>"><%= lv.ten %></option>
+                                        <% }); %>
+                                    </select>
+
+                                    <label for="chucvu">Chức vụ</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="ghichu" id="ghichu"/>
+                                    <label for="ghichu">Ghi chu</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button id="btn-hoidong-new" class="btn ink-reaction btn-default-bright"
+                                        style="width:100%">Thêm
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div><!--end .section-body -->
+        </section>
+    </div><!--end #content-->
+    <!-- END CONTENT -->
+    <%- include('../menubar'); %>
+    <!--<div class="offcanvas">-->
+        <!--<div class="offcanvas-head">-->
+            <!--<header>Thêm hướng nghiên cứu</header>-->
+            <!--<div class="offcanvas-tools">-->
+                <!--<a class="btn btn-icon-toggle btn-default-light pull-right" data-dismiss="offcanvas">-->
+                    <!--<i class="md md-close"></i>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="nano has-scrollbar" style="height: 395.2px;">-->
+            <!--<div class="nano-content" tabindex="0" style="right: -17px;">-->
+                <!--<div class="offcanvas-body">-->
+                    <!--<form class="form">-->
+
+                    <!--</form>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+</div><!--end #base-->
+<!-- END BASE -->
+
+<!-- BEGIN JAVASCRIPT -->
+<script src="/assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+<script src="/assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="/assets/js/libs/bootstrap/bootstrap.min.js"></script>
+<script src="/assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
+<script src="/assets/js/libs/DataTables/jquery.dataTables.min.js"></script>
+<script src="/assets/js/libs/toastr/toastr.js"></script>
+<script src="/assets/js/libs/DataTables/extensions/ColVis/js/dataTables.colVis.min.js"></script>
+<script src="/assets/js/libs/DataTables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+<script src="/javascripts/hoidong.js"></script>
+<!-- Put App.js last in your javascript imports -->
+<script src="/assets/js/core/source/App.min.js"></script>
+<!-- <script src="/assets/js/core/source/AppNavigation.js"></script> -->
+
+
+</body>
+</html>
