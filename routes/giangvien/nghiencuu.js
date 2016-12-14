@@ -20,7 +20,7 @@ module.exports = function (app) {
                 var ChuDe = db.models.chude;
                 if (ChuDe.exists({tenChuDe: req.body.chude}, function (err, exists) {
                         if (err) {
-                            throw err;
+                            console.log(err.message);
                         }
 
                         if (!exists) {
@@ -71,7 +71,7 @@ module.exports = function (app) {
                                     moTa: req.body.mota
                                 }, function (err) {
                                     if (err) {
-                                        throw err;
+                                        console.log(err.message);
                                     }
                                     res.json({
                                         success: true,

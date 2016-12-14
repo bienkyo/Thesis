@@ -156,21 +156,22 @@
                                         tài
                                     </button>
                                     <% } %>
-                                    <form class="form" method="post" action="/users/sinhvien/dkdetai">
+                                    <form class="form" method="post" action="/users/sinhvien/dkdetai"
+                                          novalidate="novalidate">
                                         <div class="card-body floating-label">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="Firstname1"
-                                                       name="detai">
+                                                       name="detai" required>
                                                 <label for="Firstname1">De tai nghien cuu</label>
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="Firstname1"
-                                                       name="madetai">
+                                                       name="madetai" required>
                                                 <label for="Firstname1">Ma de tai Nghien cuu</label>
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="Firstname1"
-                                                       name="mail">
+                                                       name="mail" required>
                                                 <label for="Firstname1">Giảng viên hỗ trợ (Mail giang
                                                     vien)</label>
                                             </div>
@@ -235,19 +236,20 @@
 
 
                                 <div class="tab-pane" id="tab-edit">
-                                    <form class="form-horizontal">
+                                    <form class="form-horizontal" novalidate="novalidate">
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">Chuyên
                                                 ngành</label>
                                             <div class="col-sm-10">
-                                                <input type="chuyennganh" class="form-control" id="chuyennganh">
+                                                <input type="chuyennganh" class="form-control" id="chuyennganh"
+                                                       required>
                                                 <div class="form-control-line"></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">Email</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email">
+                                                <input type="email" class="form-control" id="email" required>
                                                 <div class="form-control-line"></div>
                                             </div>
                                         </div>
@@ -255,7 +257,7 @@
                                             <label for="password"
                                                    class="col-sm-2 control-label">Password</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="password">
+                                                <input type="password" class="form-control" id="password" required>
                                                 <div class="form-control-line"></div>
                                             </div>
                                         </div>
@@ -268,7 +270,6 @@
                                         </div>
                                     </form>
                                     <div> <!-- end tab edit -->
-                                        >>>>>>> 0d0427f869d688241f629f9884bbbdf3509c2634
                                     </div>  <!-- endtab -->
                                 </div> <!--endcard-->
                             </div>
@@ -288,6 +289,9 @@
 <script src="/assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
 <script src="/assets/js/libs/bootstrap/bootstrap.min.js"></script>
 <script src="/assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
+
+<script src="/assets/js/libs/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/assets/js/libs/jquery-validation/dist/additional-methods.min.js"></script>
 <script src="/javascripts/uploadhosobaove.js"></script>
 <script src="/javascripts/svquanlydetai.js"></script>
 <!-- Put App.js last in your javascript imports -->

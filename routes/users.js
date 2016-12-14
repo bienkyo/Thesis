@@ -165,15 +165,22 @@ router.get('/profile', function (req, res) {
                     if(err){
                         console.log(err.message);
                     }
-                    var detai = null;
-                    if(row){
-                        detai = row[0];
-                    }
-                    res.render('sinhvien/profile', {
-                        "nguoihoc": rows[0],
-                        "user": user,
-                        "detai": detai
+                    con.query('SELECT * FROM giangvien',function (err, giangvien) {
+                        if(err){
+                            console.log(err.message);
+                        }
+                        var detai = null;
+                        if(row){
+                            detai = row[0];
+                        }
+                        res.render('sinhvien/profile', {
+                            "nguoihoc": rows[0],
+                            "user": user,
+                            "detai": detai,
+                            "giangvien": giangvien
+                        });
                     });
+
                 })
 
             })
@@ -181,6 +188,11 @@ router.get('/profile', function (req, res) {
         }
     });
 
+});
+
+router.get('/logout',function (req, res) {
+    req.logout();
+    res.redirect('/login');
 });
 
 
