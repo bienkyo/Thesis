@@ -11,7 +11,7 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (id, done) {
-    orm.connect('mysql://root@localhost/mydb', function (err, db) {
+    orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
         if (err) throw err;
 
         db.load('../models/user', function (err) {
@@ -26,7 +26,7 @@ passport.deserializeUser(function (id, done) {
 });
 
 passport.use(new LocalStrategy(function (username, password, done) {
-    orm.connect('mysql://root@localhost/mydb', function (err, db) {
+    orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
         if (err) throw done(err);
 
         db.load('../models/user', function (err) {
@@ -56,6 +56,7 @@ router.get('/login', function (req, res, next) {
     res.render('login');
 });
 
+
 // router.get('/profile',function (req, res) {
 //     res.render('profile');
 // })
@@ -69,7 +70,7 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/profile', function (req, res) {
     var user = req.user;
-    orm.connect('mysql://root@localhost/mydb', function (err, db) {
+    orm.connect('mysql://root:yahoo24@localhost/mydb', function (err, db) {
         if (user == null) {
             console.log('not exist account, please try again');
         } else if (user.quyen == 'admin') {
@@ -151,12 +152,20 @@ router.get('/profile', function (req, res) {
             console.log(user.id);
 
             con.query('SELECT * FROM nguoihoc WHERE MSSV=?', user.id, function (err, rows) {
+
                 console.log(rows[0]);
-                con.query('SELECT * FROM user WHERE id=?', user.id, function (err, row) {
-                    console.log(row[0]);
+                con.query('SELECT * FROM detai WHERE nguoiHoc_MSSV=? order by choDuocDuyet', user.id, function (err, row) {
+                    if(err){
+                        console.log(err.message);
+                    }
+                    var detai = null;
+                    if(row){
+                        detai = row[0];
+                    }
                     res.render('sinhvien/profile', {
                         "nguoihoc": rows[0],
-                        "user": row[0]
+                        "user": user,
+                        "detai": detai
                     });
                 })
 
